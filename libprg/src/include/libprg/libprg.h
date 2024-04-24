@@ -12,4 +12,14 @@ result_t sub(double a, double b);
 result_t sum(double a, double b);
 result_t compute(double a, double b, operation_t op);
 
+struct numero {
+    int num;
+    struct numero *prox;
+};
+
+typedef struct numero numero;
+numero* criar_no();
+numero *inserir_inicio(numero* li, int valor);
+void imprimir_lista(numero *li);
+
 #endif
