@@ -25,7 +25,7 @@ numero *inserir_inicio(numero* li, int valor){
 void imprimir_lista(numero *li){
     numero *aux = li;
     while (li!=NULL) {
-        printf("%d", aux->num);
+        printf("%d\n", aux->num);
         aux=aux->prox;
     }
 }
