@@ -1,5 +1,6 @@
 #ifndef LIBPRG_LIBPRG_H
 #define LIBPRG_LIBPRG_H
+#define FILE_NAME "contatos.dat"
 
 typedef struct {
     double value;
