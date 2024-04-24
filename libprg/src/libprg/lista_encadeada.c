@@ -15,6 +15,11 @@ numero *inserir_inicio(numero* li, int valor){
         li = novo_no;
         novo_no->prox=NULL;
     }
+    else{
+        novo_no->prox=li;
+        li=novo_no;
+    }
+    return li;
 }
 
 void imprimir_lista(numero *li){
