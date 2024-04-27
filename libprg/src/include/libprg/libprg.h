@@ -1,6 +1,6 @@
 #ifndef LIBPRG_LIBPRG_H
 #define LIBPRG_LIBPRG_H
-#define FILE_NAME "contatos.txt"
+#define FILE_NAME "contatos.dat"
 #define SIZE 100
 #include "stdio.h"
 
