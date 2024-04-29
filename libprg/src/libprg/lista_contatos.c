@@ -1,6 +1,7 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "libprg/libprg.h"
+#include "string.h"
 
 
 // indice da lista
