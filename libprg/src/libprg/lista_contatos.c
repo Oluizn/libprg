@@ -96,6 +96,7 @@ void menu(){
                     break;
                 default:
                     printf("Opcao invalida, escolha entre 1 e 3, ou pressione 9 para sair");
+                    fflush(stdin);
             }
         }
         else
