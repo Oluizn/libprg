@@ -92,6 +92,7 @@ void menu(){
                     contatos_disponiveis();
                     break;
                 case 3:
+                    fflush(stdin);
                     buscar_contato();
                     break;
                 default:
