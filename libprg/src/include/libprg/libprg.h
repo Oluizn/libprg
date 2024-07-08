@@ -47,5 +47,5 @@ void criar_contato();
 void contatos_disponiveis();
 void buscar_contato();
 
-
+int* insertion_sort(int* vet, int tamanho);
 #endif

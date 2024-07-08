@@ -7,7 +7,6 @@ numero* criar_no(){
     return novo;
 }
 
-
 numero *inserir_inicio(numero* li, int valor){
     numero* novo_no = criar_no();
     novo_no->num = valor;
