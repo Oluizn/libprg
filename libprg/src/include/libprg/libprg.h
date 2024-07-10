@@ -48,4 +48,5 @@ void contatos_disponiveis();
 void buscar_contato();
 
 int* insertion_sort(int* vet, int tamanho);
+int busca_linear (int vet[], int x)
 #endif
