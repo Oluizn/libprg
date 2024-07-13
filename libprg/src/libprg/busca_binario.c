@@ -15,3 +15,15 @@ int busca_binario (int vet[], int tam, int x) {
     }
     return -1;
 }
+
+int busca_binaria_recursiva (int vet[], int inicio, int fim, int x) {
+    if (inicio <= fim) {
+        int meio = inicio + ((fim - inicio)/2);
+        if (vet[meio] == x)
+            return meio;
+        if (vet[meio] > x)
+            return busca_binaria_recursiva(vet, inicio, meio-1, x);
+        return busca_binaria_recursiva(vet, meio+1, fim, x);
+    }
+    return -1;
+}

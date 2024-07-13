@@ -12,4 +12,6 @@ int busca_linear_sentinela (int vet[], int x, int tam) {
     int i = 1;
     while (vet[i] != x)
         i++;
+    if ( i != tam)
+        return i;
 }
