@@ -17,6 +17,7 @@ add_library(libprg
         src/libprg/bubble_sort.c
         src/libprg/insertion_sort.c
         src/libprg/busca_linear.c
+        src/libprg/busca_binario.c
 )
 target_sources(libprg PUBLIC ${SOURCES})
 target_include_directories(libprg PUBLIC ${CMAKE_CURRENT_LIST_DIR}/src/include)
