@@ -23,8 +23,8 @@ int remover_pilha (T_PILHA *pilha) {
     }
     else {
         pilha->inicio--;
-        return aux;
     }
+    return aux;
 }
 void imprimir_pilha(T_PILHA *pilha) {
     for (int i = pilha->inicio - 1; i >= 0; i--)
