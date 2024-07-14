@@ -19,6 +19,8 @@ add_library(libprg
         src/libprg/busca_linear.c
         src/libprg/busca_binario.c
         src/libprg/fila_estatica.c
+        src/libprg/fila_dinamica.c
+        src/libprg/pilha_estatica.c
 )
 target_sources(libprg PUBLIC ${SOURCES})
 target_include_directories(libprg PUBLIC ${CMAKE_CURRENT_LIST_DIR}/src/include)
