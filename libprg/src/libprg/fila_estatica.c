@@ -18,7 +18,7 @@ void inserir_elementos(int dado, T_FILA *fila) {
         fila->fim++;
     }
 }
-int remover_elemento(int dado, T_FILA *fila) {
+int remover_elemento(T_FILA *fila) {
     int aux = fila->dados[0];
     if (fila->fim == 0) {
         printf("A fila está vazia\n");
