@@ -21,11 +21,17 @@ struct numero {
     struct numero *prox;
 };
 
-// struct lista estática
+// struct fila estática
 typedef struct T_FILA {
     int dados[3];
     int fim;
 }T_FILA;
+
+// struct pilha estática
+typedef struct T_PILHA {
+    int dados[4];
+    int inicio;
+}T_PILHA;
 
 // declaração das struct para lista ordenada
 typedef struct numero numero;
@@ -69,4 +75,10 @@ void iniciar_fila(T_FILA* fila);
 void inserir_elementos(int dado, T_FILA *fila);
 int remover_elemento(T_FILA *fila);
 void imprimir_fila(T_FILA *fila);
+
+// declaração das funções de pilha
+void iniciar_pilha (T_PILHA *pilha);
+void inserir_pilha(int dado, T_PILHA *pilha);
+int remover_pilha (T_PILHA *pilha);
+void imprimir_pilha(T_PILHA *pilha);
 #endif
