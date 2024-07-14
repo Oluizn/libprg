@@ -2,7 +2,7 @@
 #include "libprg/libprg.h"
 #define N 3
 
-void iniciar_fila(T_FILA* fila, int dado) {
+void iniciar_fila(T_FILA* fila) {
     for (int i = 0; i < N; i++) {
         fila->dados[i] = 0;
     }
@@ -18,7 +18,6 @@ void inserir_elementos(int dado, T_FILA *fila) {
         fila->fim++;
     }
 }
-
 int remover_elemento(int dado, T_FILA *fila) {
     int aux = fila->dados[0];
     if (fila->fim == 0) {
@@ -32,4 +31,8 @@ int remover_elemento(int dado, T_FILA *fila) {
         fila->fim == 0;
         return aux;
     }
+}
+void imprimir_fila(T_FILA *fila) {
+    for (int i = 0; i <fila->fim; i++)
+        printf("%d\t", fila->dados[i]);
 }
