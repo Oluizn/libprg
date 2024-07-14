@@ -16,7 +16,7 @@ void inserir_pilha(int dado, T_PILHA *pilha) {
     }
 }
 int remover_pilha (T_PILHA *pilha) {
-    int aux = pilha->dados[pilha->inicio];
+    int aux = pilha->dados[pilha->inicio-1];
     if (pilha->inicio == 0) {
         printf("A pilha está vazia\n");
         return 0;
