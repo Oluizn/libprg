@@ -65,7 +65,7 @@ int busca_binario (int vet[], int tam, int x);
 int busca_binaria_recursiva (int vet[], int inicio, int fim, int x);
 
 // declaração das funções de fila
-void iniciar_fila(T_FILA* fila, int dado);
+void iniciar_fila(T_FILA* fila);
 void inserir_elementos(int dado, T_FILA *fila);
 int remover_elemento(int dado, T_FILA *fila);
 #endif
