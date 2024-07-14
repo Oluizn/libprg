@@ -68,4 +68,5 @@ int busca_binaria_recursiva (int vet[], int inicio, int fim, int x);
 void iniciar_fila(T_FILA* fila);
 void inserir_elementos(int dado, T_FILA *fila);
 int remover_elemento(int dado, T_FILA *fila);
+void imprimir_fila(T_FILA *fila);
 #endif
