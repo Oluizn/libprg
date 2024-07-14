@@ -1,4 +1,3 @@
-
 #include "libprg/libprg.h"
 #define N 4
 
@@ -28,6 +27,6 @@ int remover_pilha (T_PILHA *pilha) {
     }
 }
 void imprimir_pilha(T_PILHA *pilha) {
-    for (int i = pilha->inicio; i >= 0; i--)
+    for (int i = pilha->inicio - 1; i >= 0; i--)
         printf("%d\n", pilha->dados[i]);
 }
