@@ -28,7 +28,7 @@ int remover_elemento(int dado, T_FILA *fila) {
         for (int i = 0; i < fila->fim - 1; i++)
             fila->dados[i] = fila->dados[i+1];
         fila->fim--;
-        fila->fim == 0;
+        fila->dados[fila->fim] == 0;
         return aux;
     }
 }
