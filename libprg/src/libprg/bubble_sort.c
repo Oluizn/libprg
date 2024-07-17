@@ -14,9 +14,9 @@
          }
     }
  }
- void imprimir_bubble (int *vet){
+ void imprimir_bubble (int *vet, int tam){
     int i = 0;
-     while (&vet[i]) {
+     while (i < tam) {
          printf("%d\t", vet[i]);
          i++;
      }
