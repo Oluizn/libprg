@@ -64,7 +64,7 @@ void buscar_contato();
 
 // declaração das funções de bubble sort
 void bubble_sort(int* vet, int tamanho);
-void imprimir_bubble (int *vet, int tam);
+void imprimir_bubble (int *vet);
 
 // declaração das funções de busca em uma lista
 int busca_linear (int vet[], int x, int tam);
