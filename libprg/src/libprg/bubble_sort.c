@@ -16,6 +16,8 @@
  }
  void imprimir_bubble (int *vet){
     int i = 0;
-     while (vet[i])
+     while (vet[i]) {
          printf("%d\t", vet[i]);
+         i++;
+     }
 }
