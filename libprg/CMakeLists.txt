@@ -21,6 +21,7 @@ add_library(libprg
         src/libprg/fila_estatica.c
         src/libprg/fila_dinamica.c
         src/libprg/pilha_estatica.c
+        src/libprg/tabela_dispersao.c
 )
 target_sources(libprg PUBLIC ${SOURCES})
 target_include_directories(libprg PUBLIC ${CMAKE_CURRENT_LIST_DIR}/src/include)
