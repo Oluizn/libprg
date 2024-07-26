@@ -28,6 +28,8 @@ int inserir_contato(contact ctt){
         contacts[counter] = ctt;
         counter++;
     }
+    else
+        printf("The file failed to open");
     fclose(file);
     return r;
 }
