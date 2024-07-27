@@ -1,6 +1,6 @@
 #ifndef LIBPRG_LIBPRG_H
 #define LIBPRG_LIBPRG_H
-#define FILE_NAME "contatos.dat"
+#define FILE_NAME "contatos.txt"
 #define SIZE 100
 #include "stdio.h"
 
@@ -62,8 +62,9 @@ void criar_contato();
 void contatos_disponiveis();
 void buscar_contato();
 
-// declaração das funções de insertion
-int* insertion_sort(int* vet, int tamanho);
+// declaração das funções de bubble sort
+void bubble_sort(int* vet, int tamanho);
+void imprimir_bubble (int *vet, int tam);
 
 // declaração das funções de busca em uma lista
 int busca_linear (int vet[], int x, int tam);
