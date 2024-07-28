@@ -23,16 +23,16 @@ numero *inserir_inicio(numero* li, int valor){
 numero *inserir_final(numero* li, int valor) {
     numero* novo_no = criar_no();
     novo_no->num = valor;
-    if (li == NULL) {
+    novo_no->prox = NULL;
+    if (li == NULL)
         li = novo_no;
-        novo_no->prox = NULL;
-    }
     else {
         numero *aux = li;
         while (aux->prox) {
             aux->prox++;
         }
         aux = novo_no;
+        li = aux;
     }
     return li;
 }
