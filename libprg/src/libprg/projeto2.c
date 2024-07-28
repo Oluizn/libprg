@@ -32,7 +32,7 @@ tarefa *inserir_prioridade_tarefa(tarefa *li, int indice_prioridade) {
 void imprimir_lista_tarefa(tarefa *li){
     tarefa *aux = li;
     while (aux) {
-        printf("%s", aux->descricao);
+        printf("%s\n", aux->descricao);
         aux=aux->prox;
     }
 }
