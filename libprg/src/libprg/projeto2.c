@@ -32,6 +32,8 @@ void imprimir_lista_tarefa(tarefa *li){
     tarefa *aux = li;
     while (aux) {
         printf("%s\n", aux->descricao);
+        printf("%s\n", aux->prazo);
+        printf("Nive de prioridade: %d\n", aux->prioridade);
         aux=aux->prox;
     }
 }
