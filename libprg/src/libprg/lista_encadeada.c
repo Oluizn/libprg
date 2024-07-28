@@ -39,7 +39,7 @@ numero *inserir_final(numero* li, int valor) {
 
 void imprimir_lista(numero *li){
     numero *aux = li;
-    while (aux) {
+    while (aux!=NULL) {
         printf("%d\n", aux->num);
         aux=aux->prox;
     }
