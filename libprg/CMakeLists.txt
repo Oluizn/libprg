@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.21)
 # Add header files here manually
 set(HEADERS
         "${CMAKE_CURRENT_LIST_DIR}/src/include/libprg/libprg.h"
+        "${CMAKE_CURRENT_LIST_DIR}/src/include/libprg/projeto2.h"
 )
 # Add source files here manually
 set(SOURCES 
@@ -21,6 +22,7 @@ add_library(libprg
         src/libprg/fila_estatica.c
         src/libprg/fila_dinamica.c
         src/libprg/pilha_estatica.c
+        src/include/libprg/projeto2.h
 )
 target_sources(libprg PUBLIC ${SOURCES})
 target_include_directories(libprg PUBLIC ${CMAKE_CURRENT_LIST_DIR}/src/include)
