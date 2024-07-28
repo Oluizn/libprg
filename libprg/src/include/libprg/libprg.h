@@ -37,6 +37,7 @@ typedef struct T_PILHA {
 typedef struct numero numero;
 numero* criar_no();
 numero *inserir_inicio(numero* li, int valor);
+numero *inserir_final(numero* li, int valor);
 void imprimir_lista(numero *li);
 
 // struct contato para o projeto
