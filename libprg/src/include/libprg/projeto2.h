@@ -6,7 +6,8 @@ typedef struct tarefa {
     struct tarefa* prox;
 }tarefa;
 
-tarefa* criar_no();
-tarefa *inserir_inicio(tarefa* li, char descricao);
-void imprimir_lista(tarefa *li);
+tarefa* criar_no_tarefa();
+tarefa *inserir_inicio_tarefa(tarefa* li, char descricao);
+void imprimir_lista_tarefa(tarefa *li);
+
 #endif //PROJETO2_H

@@ -3,13 +3,13 @@
 #include <string.h>
 #include <stdlib.h>
 
-tarefa* criar_no(){
+tarefa* criar_no_tarefa(){
     tarefa* novo = (tarefa*) malloc(sizeof (tarefa));
     return novo;
 }
 
-tarefa *inserir_inicio(tarefa* li, char descricao){
-    tarefa* novo_no = criar_no();
+tarefa *inserir_inicio_tarefa(tarefa* li, char descricao){
+    tarefa* novo_no = criar_no_tarefa();
     novo_no->descricao = descricao;
     if (li == NULL) {
         li = novo_no;
@@ -22,7 +22,7 @@ tarefa *inserir_inicio(tarefa* li, char descricao){
     return li;
 }
 
-void imprimir_lista(tarefa *li){
+void imprimir_lista_tarefa(tarefa *li){
     tarefa *aux = li;
     while (aux) {
         printf("%d\t", aux->descricao);
