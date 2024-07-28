@@ -5,12 +5,17 @@
 
 tarefa* criar_no_tarefa(){
     tarefa* novo = (tarefa*) malloc(sizeof (tarefa));
-    return novo;
+    if (novo == NULL) {
+        printf("Erro na alocacao de memoria");
+        return novo;
+    }
+    else
+        return novo;
 }
 
-tarefa *inserir_inicio_tarefa(tarefa* li, char descricao){
+tarefa *inserir_inicio_tarefa(tarefa* li, char* descricao){
     tarefa* novo_no = criar_no_tarefa();
-    novo_no->descricao = descricao;
+    strcpy(novo_no->descricao, descricao);
     if (li == NULL) {
         li = novo_no;
         novo_no->prox=NULL;
@@ -25,7 +30,7 @@ tarefa *inserir_inicio_tarefa(tarefa* li, char descricao){
 void imprimir_lista_tarefa(tarefa *li){
     tarefa *aux = li;
     while (aux) {
-        printf("%c\t", aux->descricao);
+        printf("%s", aux->descricao);
         aux=aux->prox;
     }
 }

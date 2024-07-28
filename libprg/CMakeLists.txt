@@ -4,6 +4,7 @@ cmake_minimum_required(VERSION 3.21)
 set(HEADERS
         "${CMAKE_CURRENT_LIST_DIR}/src/include/libprg/libprg.h"
         "${CMAKE_CURRENT_LIST_DIR}/src/include/libprg/projeto2.h"
+        "${CMAKE_CURRENT_LIST_DIR}/src/include/libprg/aluno.h"
 )
 # Add source files here manually
 set(SOURCES 
@@ -25,6 +26,8 @@ add_library(libprg
         src/include/libprg/projeto2.h
         src/libprg/projeto2.c
         src/libprg/tabela_dispersao.c
+        src/libprg/alunos.c
+        src/include/libprg/aluno.h
 )
 target_sources(libprg PUBLIC ${SOURCES})
 target_include_directories(libprg PUBLIC ${CMAKE_CURRENT_LIST_DIR}/src/include)
