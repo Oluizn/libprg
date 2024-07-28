@@ -28,10 +28,10 @@ numero *inserir_final(numero* li, int valor) {
         li = novo_no;
     else {
         numero *aux = li;
-        while (aux) {
-            aux = aux->prox;
+        while (aux->prox) {
+            aux->prox++;
         }
-        aux = novo_no;
+        aux->prox = novo_no;
         li = aux;
     }
     return li;
