@@ -31,8 +31,7 @@ numero *inserir_final(numero* li, int valor) {
         while (aux->prox) {
             aux = aux->prox;
         }
-        aux = novo_no;
-        li = aux;
+        aux->prox = novo_no;
     }
     return li;
 }
