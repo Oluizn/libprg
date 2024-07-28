@@ -29,7 +29,7 @@ numero *inserir_final(numero* li, int valor) {
     else {
         numero *aux = li;
         while (aux->prox) {
-            aux++;
+            aux = aux->prox;
         }
         aux = novo_no;
         li = aux;
