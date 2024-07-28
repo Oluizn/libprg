@@ -1,6 +1,6 @@
  #include "stdio.h"
  #include "stdlib.h"
- #include "libprg/libprg.h"
+ #include "libprg/sort.h"
 
  void bubble_sort(int* vet, int tamanho){
     int aux;
