@@ -25,7 +25,7 @@ tarefa *inserir_inicio_tarefa(tarefa* li, char descricao){
 void imprimir_lista_tarefa(tarefa *li){
     tarefa *aux = li;
     while (aux) {
-        printf("%d\t", aux->descricao);
+        printf("%c\t", aux->descricao);
         aux=aux->prox;
     }
 }
