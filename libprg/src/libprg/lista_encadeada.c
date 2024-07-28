@@ -20,10 +20,26 @@ numero *inserir_inicio(numero* li, int valor){
     }
     return li;
 }
+numero *inserir_final(numero* li, int valor) {
+    numero* novo_no = criar_no();
+    novo_no->num = valor;
+    if (li == NULL) {
+        li = novo_no;
+        novo_no->prox = NULL;
+    }
+    else {
+        numero *aux = li;
+        while (aux->prox) {
+            aux->prox++;
+        }
+        aux = novo_no;
+    }
+    return li;
+}
 
 void imprimir_lista(numero *li){
     numero *aux = li;
-    while (li) {
+    while (aux) {
         printf("%d\n", aux->num);
         aux=aux->prox;
     }
