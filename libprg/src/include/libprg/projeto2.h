@@ -1,16 +1,11 @@
 #ifndef PROJETO2_H
 #define PROJETO2_H
-#include "stdio.h"
 
-typedef struct task {
-    int code
-    char description;
-    char priority_level;
-    char deadline;
-} task;
+typedef struct tarefa {
+    char descricao;
+    struct tarefa* prox;
+}tarefa;
 
-typedef struct node {
-    struct tast;
-    struct node *next;
-};
+task* criar_no();
+task *inserir_inicio(tarefa* li, char descricao);
 #endif //PROJETO2_H
