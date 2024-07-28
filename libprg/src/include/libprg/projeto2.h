@@ -10,7 +10,7 @@ typedef struct tarefa {
 }tarefa;
 
 tarefa* criar_no_tarefa();
-tarefa *inserir_descricao_tarefa(tarefa* li, char decricao[100]);
+tarefa *inserir_inicio_tarefa(tarefa* li, char decricao[100]);
 void imprimir_lista_tarefa(tarefa *li);
 
 #endif //PROJETO2_H

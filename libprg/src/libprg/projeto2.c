@@ -12,9 +12,11 @@ tarefa* criar_no_tarefa(){
     return novo;
 }
 
-tarefa *inserir_descricao_tarefa(tarefa* li, char* descricao){
+tarefa *inserir_inicio_tarefa(tarefa* li, char* descricao, int indice_prioridade, char* prazo){
     tarefa* novo_no = criar_no_tarefa();
     strcpy(novo_no->descricao, descricao);
+    strcpy(novo_no->prazo, prazo);
+    novo_no->prioridade = indice_prioridade;
     if (li == NULL) {
         li = novo_no;
         novo_no->prox=NULL;
@@ -26,9 +28,6 @@ tarefa *inserir_descricao_tarefa(tarefa* li, char* descricao){
     return li;
 }
 
-tarefa *inserir_prioridade_tarefa(tarefa *li, int indice_prioridade) {
-
-}
 void imprimir_lista_tarefa(tarefa *li){
     tarefa *aux = li;
     while (aux) {
