@@ -2,6 +2,6 @@
 #define SORT_H
 
 void bubble_sort(int* vet, int tamanho);
-void imprimir_bubble (int *vet, int tam);
-
+void imprimir(int *vet, int tam);
+int* insertion_sort(int* vet, int tamanho);
 #endif //SORT_H
