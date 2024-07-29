@@ -1,4 +1,5 @@
 #include "libprg/sort.h"
+#include "stdio.h"
 
 int* selection_sort(int *vet, int tam) {
     int i, min;
