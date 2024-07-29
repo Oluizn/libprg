@@ -16,3 +16,11 @@ int* selection_sort(int *vet, int tam) {
     }
     return vet;
 }
+
+void imprimir_selection(int *vet, int tam){
+    int i = 0;
+    while (i < tam) {
+        printf("%d\t", vet[i]);
+        i++;
+    }
+}
