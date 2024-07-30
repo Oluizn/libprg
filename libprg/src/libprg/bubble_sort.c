@@ -14,10 +14,3 @@
          }
     }
  }
- void imprimir_bubble(int *vet, int tam){
-    int i = 0;
-     while (i < tam) {
-         printf("%d\t", vet[i]);
-         i++;
-     }
-}

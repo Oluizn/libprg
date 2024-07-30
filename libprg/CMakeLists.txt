@@ -30,6 +30,7 @@ add_library(libprg
         src/include/libprg/aluno.h
         src/include/libprg/sort.h
         src/libprg/selection_sort.c
+        src/libprg/imprimir.c
 )
 target_sources(libprg PUBLIC ${SOURCES})
 target_include_directories(libprg PUBLIC ${CMAKE_CURRENT_LIST_DIR}/src/include)
