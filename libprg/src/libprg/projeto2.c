@@ -25,12 +25,7 @@ estrutura *inserir_inicio_tarefa(estrutura * li, char *descricao, int indice_pri
     }
     else{
         estrutura *aux = li; // auxiliar para captar valor do código do nó anterior
-        while (aux){
-            if (aux->prox == NULL){
-                novo_no->pos.codigo = aux->pos.codigo + 1;
-            }
-            aux = aux->prox;
-        }
+        novo_no->pos.codigo = aux->pos.codigo + 1;
         novo_no->prox=li;
         li=novo_no;
     }
