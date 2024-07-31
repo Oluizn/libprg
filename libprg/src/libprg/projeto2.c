@@ -3,8 +3,8 @@
 #include <string.h>
 #include <stdlib.h>
 
-tarefa* criar_no_tarefa(){
-    tarefa* novo = (tarefa*) malloc(sizeof (tarefa));
+estrutura *criar_no_tarefa(){
+    estrutura *novo = (estrutura *) malloc(sizeof (estrutura));
     if (novo == NULL) {
         printf("Erro na alocacao de memoria");
         exit(0);
@@ -12,28 +12,38 @@ tarefa* criar_no_tarefa(){
     return novo;
 }
 
-tarefa *inserir_inicio_tarefa(tarefa* li, char* descricao, int indice_prioridade, char* prazo){
-    tarefa* novo_no = criar_no_tarefa();
-    strcpy(novo_no->descricao, descricao);
-    strcpy(novo_no->prazo, prazo);
-    novo_no->prioridade = indice_prioridade;
+estrutura *inserir_inicio_tarefa(estrutura * li, char *descricao, int indice_prioridade, char* prazo){
+    estrutura * novo_no = criar_no_tarefa();
+    strcpy(novo_no->pos.descricao, descricao);
+    strcpy(novo_no->pos.prazo, prazo);
+    novo_no->pos.prioridade = indice_prioridade;
+
     if (li == NULL) {
+        novo_no->pos.codigo = 1;
         li = novo_no;
         novo_no->prox=NULL;
     }
     else{
+        estrutura *aux = li; // auxiliar para captar valor do código do nó anterior
+        while (aux){
+            if (aux->prox == NULL){
+                novo_no->pos.codigo = aux->pos.codigo + 1;
+            }
+            aux = aux->prox;
+        }
         novo_no->prox=li;
         li=novo_no;
     }
     return li;
 }
 
-void imprimir_lista_tarefa(tarefa *li){
-    tarefa *aux = li;
+void imprimir_lista_tarefa(estrutura *li){
+    estrutura *aux = li;
     while (aux) {
-        printf("%s\n", aux->descricao);
-        printf("%s\n", aux->prazo);
-        printf("Nive de prioridade: %d\n", aux->prioridade);
-        aux=aux->prox;
+        printf("%d\n", aux->pos.codigo);
+        printf("%s\n", aux->pos.descricao);
+        printf("%s\n", aux->pos.prazo);
+        printf("Nivel de prioridade: %d\n", aux->pos.prioridade);
+        aux = aux->prox;
     }
 }

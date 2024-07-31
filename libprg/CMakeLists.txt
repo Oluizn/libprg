@@ -31,6 +31,8 @@ add_library(libprg
         src/include/libprg/sort.h
         src/libprg/selection_sort.c
         src/libprg/imprimir.c
+        src/libprg/merge_sort.c
+        src/libprg/quick_sort.c
 )
 target_sources(libprg PUBLIC ${SOURCES})
 target_include_directories(libprg PUBLIC ${CMAKE_CURRENT_LIST_DIR}/src/include)

@@ -6,11 +6,16 @@ typedef struct tarefa {
     char descricao[100];
     int prioridade;
     char prazo[13];
-    struct tarefa* prox;
+    int conclusao[13];
 }tarefa;
 
-tarefa* criar_no_tarefa();
-tarefa *inserir_inicio_tarefa(tarefa* li, char* descricao, int indice_prioridade, char* prazo);
-void imprimir_lista_tarefa(tarefa *li);
+typedef struct estrutura_tarefa {
+    tarefa pos;
+    struct estrutura_tarefa *prox;
+}estrutura;
+
+estrutura *criar_no_tarefa();
+estrutura *inserir_inicio_tarefa(estrutura* li, char* descricao, int indice_prioridade, char* prazo);
+void imprimir_lista_tarefa(estrutura *li);
 
 #endif //PROJETO2_H
