@@ -12,8 +12,8 @@ int particiona (int *vet, int inicio, int fim) {
     i = i + 1;
     return i;
 }
-int* quick_sort (int *vet, int inicio, int fim) {
-    if (inicio < fim) {
-        int p
-    }
-}
+// int* quick_sort (int *vet, int inicio, int fim) {
+//     if (inicio < fim) {
+//         int p
+//     }
+// }
