@@ -38,7 +38,12 @@ void imprimir_lista_tarefa(estrutura *li){
         printf("%d\n", aux->pos.codigo);
         printf("%s\n", aux->pos.descricao);
         printf("%s\n", aux->pos.prazo);
-        printf("Nivel de prioridade: %d\n", aux->pos.prioridade);
+        if (aux->pos.prioridade == 1)
+            printf("Nivel de prioridade: Baixo");
+        else if (aux->pos.prioridade == 2)
+            printf("Nivel de prioridade: Medio");
+        else if (aux->pos.prioridade == 3)
+            printf("Nivel de prioridade: Baixo");
         aux = aux->prox;
     }
 }
