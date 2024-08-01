@@ -42,16 +42,16 @@ estrutura *busca (estrutura *li, int codigo) {
     return NULL;
 }
 
-estrutura *remover_tarefa (estrutura *li, int num) {
+estrutura *remover_tarefa (estrutura **li, int num) {
     estrutura *remover = NULL;
     estrutura *aux = NULL;
-    if (li) {
-        if (li->pos.codigo == num) {
-            remover = li;
-            li = remover->prox;
+    if (*li) {
+        if ((*li)->pos.codigo == num) {
+            remover = *li;
+            *li = remover->prox;
         }
         else {
-            aux = li;
+            aux = *li;
             if(busca(aux, num)) {
                 remover = aux->prox;
                 aux->prox = remover->prox;
