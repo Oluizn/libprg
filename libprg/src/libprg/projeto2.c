@@ -24,14 +24,38 @@ estrutura *inserir_inicio_tarefa(estrutura * li, char *descricao, int indice_pri
         novo_no->prox=NULL;
     }
     else{
-        estrutura *aux = li; // auxiliar para captar valor do código do nó anterior
-        novo_no->pos.codigo = aux->pos.codigo + 1;
+        novo_no->pos.codigo = li->pos.codigo + 1;
         novo_no->prox=li;
         li=novo_no;
     }
     return li;
 }
 
+int busca (estrutura *li, int codigo) {
+    estrutura *aux = li;
+    while (aux) {
+        if (codigo == aux->pos.codigo)
+            return aux->pos.codigo;
+        aux = aux->prox;
+    }
+    printf("Tarefa não encontrada\n");
+    return 0;
+}
+
+estrutura *remover_tarefa (estrutura **li, int num) {
+    estrutura *remover = NULL;
+    if (*li) {
+        if ((*li)->pos.codigo == num) {
+
+        }
+        busca(*li, num);
+    }
+    else {
+        printf("A lista esta vazia\n");
+        exit((0));
+    }
+    return remover;
+}
 void imprimir_lista_tarefa(estrutura *li){
     estrutura *aux = li;
     while (aux) {
