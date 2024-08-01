@@ -17,6 +17,7 @@ typedef struct estrutura_tarefa {
 estrutura *criar_no_tarefa();
 estrutura *inserir_inicio_tarefa(estrutura* li, char* descricao, int indice_prioridade, char* prazo);
 void imprimir_lista_tarefa(estrutura *li);
+void menu_tarefas ();
 estrutura *busca (estrutura *li, int codigo);
 estrutura *remover_tarefa (estrutura **li, int num);
 
