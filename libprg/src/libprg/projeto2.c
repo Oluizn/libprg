@@ -42,20 +42,20 @@ int busca (estrutura *li, int codigo) {
     return 0;
 }
 
-estrutura *remover_tarefa (estrutura **li, int num) {
-    estrutura *remover = NULL;
-    if (*li) {
-        if ((*li)->pos.codigo == num) {
-
-        }
-        busca(*li, num);
-    }
-    else {
-        printf("A lista esta vazia\n");
-        exit((0));
-    }
-    return remover;
-}
+// estrutura *remover_tarefa (estrutura **li, int num) {
+//     estrutura *remover = NULL;
+//     if (*li) {
+//         if ((*li)->pos.codigo == num) {
+//
+//         }
+//         busca(*li, num);
+//     }
+//     else {
+//         printf("A lista esta vazia\n");
+//         exit((0));
+//     }
+//     return remover;
+// }
 void imprimir_lista_tarefa(estrutura *li){
     estrutura *aux = li;
     while (aux) {
