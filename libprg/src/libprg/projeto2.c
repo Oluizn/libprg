@@ -31,31 +31,39 @@ estrutura *inserir_inicio_tarefa(estrutura * li, char *descricao, int indice_pri
     return li;
 }
 
-int busca (estrutura *li, int codigo) {
+estrutura *busca (estrutura *li, int codigo) {
     estrutura *aux = li;
     while (aux) {
         if (codigo == aux->pos.codigo)
-            return aux->pos.codigo;
+            return aux;
         aux = aux->prox;
     }
     printf("Tarefa não encontrada\n");
-    return 0;
+    return NULL;
 }
 
-// estrutura *remover_tarefa (estrutura **li, int num) {
-//     estrutura *remover = NULL;
-//     if (*li) {
-//         if ((*li)->pos.codigo == num) {
-//
-//         }
-//         busca(*li, num);
-//     }
-//     else {
-//         printf("A lista esta vazia\n");
-//         exit((0));
-//     }
-//     return remover;
-// }
+estrutura *remover_tarefa (estrutura **li, int num) {
+    estrutura *remover = NULL;
+    estrutura *aux = NULL;
+    if (*li) {
+        if ((*li)->pos.codigo == num) {
+            remover = *li;
+            *li = remover->prox;
+        }
+        else {
+            aux = *li;
+            if(busca(aux, num)) {
+                remover = aux->prox;
+                aux->prox = remover->prox;
+            }
+        }
+    }
+    else {
+        printf("A lista esta vazia\n");
+        exit((0));
+    }
+    return remover;
+}
 void imprimir_lista_tarefa(estrutura *li){
     estrutura *aux = li;
     while (aux) {
