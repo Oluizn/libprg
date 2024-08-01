@@ -7,6 +7,7 @@ void menu_tarefas () {
     int operador = 0;
     estrutura *lista_tarefa = NULL;
     while (operador != 9) {
+        fflush(stdin);
         printf("Escolha uma acao:\n");
         printf("1 - Nova tarefa:\n");
         printf("2 - Lista de tarefas:\n");
