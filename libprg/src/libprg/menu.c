@@ -42,10 +42,6 @@ void menu_tarefas () {
                 case 3: {
                     fflush(stdin);
                     imprimir_lista_tarefa(lista_tarefa);
-                    if (lista_tarefa == NULL) {
-                        printf("A lista está vazia");
-                        break;
-                    }
                     printf("\n");
                     int operador_removedor;
                     printf("Por favor, insira o codigo da tarefa que deseja remover: ");
