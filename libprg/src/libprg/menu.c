@@ -23,10 +23,10 @@ void menu_tarefas () {
                     fflush(stdin);
                     char descricao[100], prazo[13];
                     int prioridade;
-                    printf("Por favor informe a descricao da tarefa: ");
+                    printf("Por favor informe a descricao da tarefa:");
                     fgets(descricao, 100, stdin);
                     fflush(stdin);
-                    printf("Por favor informe o prazo da tarefa: ");
+                    printf("Por favor informe o prazo da tarefa:");
                     fgets(prazo, 13, stdin);
                     fflush(stdin);
                     printf("Por favor informe o nivel de prioridade da tarefa.\n1 - Baixo\n2 - Medio\n3 - Alto\n");
