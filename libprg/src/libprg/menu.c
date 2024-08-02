@@ -28,7 +28,7 @@ void menu_tarefas () {
                     scanf("%c", &prazo);
                     printf("Por favor informe o nivel de prioridade da tarefa.\n1 - Baixo\n2 - Medio\n3 - Alto\n");
                     scanf("%d", &prioridade);
-                    inserir_inicio_tarefa(lista_tarefa, descricao, prioridade, prazo);
+                    lista_tarefa = inserir_inicio_tarefa(lista_tarefa, descricao, prioridade, prazo);
                     break;
                 }
                 case 2: {
