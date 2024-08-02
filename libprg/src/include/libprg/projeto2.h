@@ -12,6 +12,7 @@ typedef struct tarefa {
 typedef struct estrutura_tarefa {
     tarefa pos;
     struct estrutura_tarefa *prox;
+    struct estrutura_tarefa *anterior;
 }estrutura;
 
 estrutura *criar_no_tarefa();
