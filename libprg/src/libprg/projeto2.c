@@ -67,7 +67,7 @@ estrutura *remover_tarefa (estrutura **li, int num) {
 void imprimir_lista_tarefa(estrutura *li){
     estrutura *aux = li;
     while (aux) {
-        printf("%d", aux->pos.codigo);
+        printf("%d\n", aux->pos.codigo);
         printf("O que fazer: %s", aux->pos.descricao);
         printf("Prazo de conclusao: %s", aux->pos.prazo);
         if (aux->pos.prioridade == 1)
