@@ -58,17 +58,17 @@ estrutura *remover_tarefa (estrutura **li, int num) {
             }
         }
     }
-    // else {
-    //     printf("A lista esta vazia\n");
-    // }
+    else {
+        printf("A lista esta vazia\n");
+    }
     return remover;
 }
 void imprimir_lista_tarefa(estrutura *li){
     estrutura *aux = li;
     while (aux) {
-        printf("%d\n", aux->pos.codigo);
-        printf("O que fazer: %s\n", aux->pos.descricao);
-        printf("Prazo de conclusao: %s\n", aux->pos.prazo);
+        printf("%d", aux->pos.codigo);
+        printf("O que fazer: %s", aux->pos.descricao);
+        printf("Prazo de conclusao: %s", aux->pos.prazo);
         if (aux->pos.prioridade == 1)
             printf("Nivel de prioridade: Baixo\n");
         else if (aux->pos.prioridade == 2)
