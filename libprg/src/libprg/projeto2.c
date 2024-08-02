@@ -99,7 +99,7 @@ void menu_tarefas () {
                     fflush(stdin);
                     int descricao, prazo;
                     int prioridade;
-                    // printf("Por favor informe a descricao da tarefa: ");
+                    printf("Por favor informe a descricao da tarefa: ");
                     scanf("%d", &descricao);
                     fflush(stdin);
                     printf("Por favor informe o prazo da tarefa: ");
