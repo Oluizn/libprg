@@ -52,7 +52,7 @@ void menu_tarefas () {
                     break;
                 }
                 default:
-                    printf("Opcao invalida, escolha entre 1 e 3, ou pressione 9 para sair");
+                    printf("Opcao invalida, escolha entre 1 e 3, ou pressione 9 para sair\n");
                 fflush(stdin);
             }
         }
