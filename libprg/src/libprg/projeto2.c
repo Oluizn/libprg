@@ -111,22 +111,22 @@ void menu_tarefas () {
                     lista_tarefa = inserir_inicio_tarefa(lista_tarefa, descricao, prioridade, prazo);
                     break;
                 }
-                case 2: {
-                    fflush(stdin);
-                    imprimir_lista_tarefa(lista_tarefa);
-                    break;
-                }
-                case 3: {
-                    fflush(stdin);
-                    imprimir_lista_tarefa(lista_tarefa);
-                    printf("\n");
-                    int operador_removedor;
-                    printf("Por favor, insira o codigo da tarefa que deseja remover: ");
-                    scanf("%d", &operador_removedor);
-                    fflush(stdin);
-                    remover_tarefa(&lista_tarefa, operador_removedor);
-                    break;
-                }
+                // case 2: {
+                //     fflush(stdin);
+                //     imprimir_lista_tarefa(lista_tarefa);
+                //     break;
+                // }
+                // case 3: {
+                //     fflush(stdin);
+                //     imprimir_lista_tarefa(lista_tarefa);
+                //     printf("\n");
+                //     int operador_removedor;
+                //     printf("Por favor, insira o codigo da tarefa que deseja remover: ");
+                //     scanf("%d", &operador_removedor);
+                //     fflush(stdin);
+                //     remover_tarefa(&lista_tarefa, operador_removedor);
+                //     break;
+                // }
                 default:
                     printf("Opcao invalida, escolha entre 1 e 3, ou pressione 9 para sair");
                 fflush(stdin);
