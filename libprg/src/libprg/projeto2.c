@@ -58,9 +58,9 @@ estrutura *remover_tarefa (estrutura **li, int num) {
             }
         }
     }
-    else {
-        printf("A lista esta vazia\n");
-    }
+    // else {
+    //     printf("A lista esta vazia\n");
+    // }
     return remover;
 }
 void imprimir_lista_tarefa(estrutura *li){
