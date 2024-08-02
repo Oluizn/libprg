@@ -68,8 +68,8 @@ void imprimir_lista_tarefa(estrutura *li){
     estrutura *aux = li;
     while (aux) {
         printf("%d\n", aux->pos.codigo);
-        printf("%s\n", aux->pos.descricao);
-        printf("%s\n", aux->pos.prazo);
+        printf("O que fazer: %s", aux->pos.descricao);
+        printf("Prazo de conclusao: %s\n", aux->pos.prazo);
         if (aux->pos.prioridade == 1)
             printf("Nivel de prioridade: Baixo\n");
         else if (aux->pos.prioridade == 2)
