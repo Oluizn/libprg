@@ -17,7 +17,7 @@ void menu_tarefas () {
 
         scanf("%d", &operador);
 
-        if(operador != 9){
+        if(operador >=0 && operador <= 3){
             switch (operador) {
                 case 1: {
                     fflush(stdin);
