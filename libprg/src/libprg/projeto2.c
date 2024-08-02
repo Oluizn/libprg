@@ -97,16 +97,16 @@ void menu_tarefas () {
             switch (operador) {
                 case 1: {
                     fflush(stdin);
-                    char descricao[100], prazo[13];
+                    int descricao, prazo;
                     int prioridade;
                     // printf("Por favor informe a descricao da tarefa: ");
-                    // fgets(descricao, 100, stdin);
-                    // fflush(stdin);
+                    scanf("%d", &descricao);
+                    fflush(stdin);
                     printf("Por favor informe o prazo da tarefa: ");
-                    fgets(prazo, 100, stdin);
-                    // fflush(stdin);
-                    // printf("Por favor informe o nivel de prioridade da tarefa.\n1 - Baixo\n2 - Medio\n3 - Alto\n");
-                    // scanf("%d", &prioridade);
+                    scanf("%d", &prazo);
+                    fflush(stdin);
+                    printf("Por favor informe o nivel de prioridade da tarefa.\n1 - Baixo\n2 - Medio\n3 - Alto\n");
+                    scanf("%d", &prioridade);
                     fflush(stdin);
                     lista_tarefa = inserir_inicio_tarefa(lista_tarefa, "descricao", prioridade, "prazo");
                     break;
