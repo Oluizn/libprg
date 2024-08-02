@@ -46,6 +46,7 @@ void menu_tarefas () {
                     int operador_removedor;
                     printf("Por favor, insira o codigo da tarefa que deseja remover: ");
                     scanf("%d", &operador_removedor);
+                    fflush(stdin);
                     remover_tarefa(&lista_tarefa, operador_removedor);
                     break;
                 }
