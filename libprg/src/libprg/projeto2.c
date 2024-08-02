@@ -108,8 +108,7 @@ void menu_tarefas () {
                     printf("Por favor informe o nivel de prioridade da tarefa.\n1 - Baixo\n2 - Medio\n3 - Alto\n");
                     scanf("%d", &prioridade);
                     fflush(stdin);
-                    prazo[] = "01/08/2024";
-                    lista_tarefa = inserir_inicio_tarefa(lista_tarefa, descricao, prioridade, prazo);
+                    lista_tarefa = inserir_inicio_tarefa(lista_tarefa, descricao, prioridade, "prazo");
                     break;
                 }
                 case 2: {
