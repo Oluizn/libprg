@@ -60,7 +60,6 @@ estrutura *remover_tarefa (estrutura **li, int num) {
     }
     else {
         printf("A lista esta vazia\n");
-        exit((0));
     }
     return remover;
 }
