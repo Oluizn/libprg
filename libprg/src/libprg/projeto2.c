@@ -48,7 +48,7 @@ void remover_tarefa (estrutura **li, int num) {
         if ((*li)->pos.codigo == num) {
             remover = *li;
             *li = remover->prox;
-            free(remover);
+            // free(remover);
         }
         else {
             aux = *li;
@@ -57,7 +57,7 @@ void remover_tarefa (estrutura **li, int num) {
             if (aux->prox) {
                 remover = aux->prox;
                 aux->prox = remover->prox;
-                free(remover);
+                // free(remover);
             }
         }
     }
