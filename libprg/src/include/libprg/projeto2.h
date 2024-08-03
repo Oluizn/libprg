@@ -28,5 +28,6 @@ void imprimir_lista_tarefa(tarefa_nao_concluida *li);
 void menu_tarefas ();
 tarefa_nao_concluida *busca (tarefa_nao_concluida *li, int codigo);
 void remover_tarefa (tarefa_nao_concluida **li, int num);
+void editar_tarefa (tarefa_nao_concluida *li, char *descricao, int indice_prioridade, char *prazo, int codigo);
 
 #endif //PROJETO2_H
