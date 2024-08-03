@@ -47,7 +47,7 @@ tarefa_nao_concluida *busca (tarefa_nao_concluida *li, int codigo) {
 }
 
 void remover_tarefa (tarefa_nao_concluida **li, int num) {
-    tarefa_nao_concluida *aux2, *remover = NULL;
+    tarefa_nao_concluida *remover = NULL;
     tarefa_nao_concluida *aux = *li;
     if (*li) {
         if ((*li)->pos.codigo == num) {
@@ -62,7 +62,7 @@ void remover_tarefa (tarefa_nao_concluida **li, int num) {
                 remover = aux->prox;
                 aux->prox = remover->prox;
                 if (remover->prox) {
-                    aux2 = remover->prox;
+                    tarefa_nao_concluida *aux2 = remover->prox;
                     aux2->anterior = aux;
                 }
                 free(remover);
