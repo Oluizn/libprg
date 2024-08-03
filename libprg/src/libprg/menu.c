@@ -43,12 +43,14 @@ void menu_tarefas () {
                 case 3: {
                     fflush(stdin);
                     imprimir_lista_tarefa(lista_tarefa);
-                    printf("\n");
-                    int operador_removedor;
-                    printf("Por favor, insira o codigo da tarefa que deseja remover: ");
-                    scanf("%d", &operador_removedor);
-                    fflush(stdin);
-                    remover_tarefa(&lista_tarefa, operador_removedor);
+                    if (lista_tarefa) {
+                        printf("\n");
+                        int operador_removedor;
+                        printf("Por favor, insira o codigo da tarefa que deseja remover: ");
+                        scanf("%d", &operador_removedor);
+                        fflush(stdin);
+                        remover_tarefa(&lista_tarefa, operador_removedor);
+                    }
                     break;
                 }
                 default:
