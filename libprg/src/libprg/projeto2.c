@@ -17,7 +17,6 @@ estrutura *inserir_inicio_tarefa(estrutura * li, char *descricao, int indice_pri
     strcpy(novo_no->pos.descricao, descricao);
     strcpy(novo_no->pos.prazo, prazo);
     novo_no->pos.prioridade = indice_prioridade;
-    novo_no->anterior = NULL;
     if (li == NULL) {
         novo_no->pos.codigo = 1;
         li = novo_no;
@@ -25,7 +24,6 @@ estrutura *inserir_inicio_tarefa(estrutura * li, char *descricao, int indice_pri
     }
     else{
         novo_no->pos.codigo = li->pos.codigo + 1;
-        li->anterior = novo_no;
         novo_no->prox=li;
         li=novo_no;
     }
@@ -59,7 +57,6 @@ void remover_tarefa (estrutura **li, int num) {
             if (aux->prox) {
                 remover = aux->prox;
                 aux->prox = remover->prox;
-                remover->prox->anterior = remover->anterior;
                 free(remover);
             }
         }
@@ -78,8 +75,6 @@ void editar_tarefa (estrutura *li, char *descricao, int indice_de_prioridade, ch
             }
             li = li->prox;
         }
-        while (li)
-            li = li->anterior;
     }
     else {
         printf("A lista esta vazia\n");
