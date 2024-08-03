@@ -76,15 +76,17 @@ void remover_tarefa (tarefa_nao_concluida **li, int num) {
     }
 }
 
-tarefa_nao_concluida *editar_tarefa (tarefa_nao_concluida *li, char *descricao, int indice_prioridade, char *prazo, int codigo) {
-    tarefa_nao_concluida *aux = li, * novo_no = criar_no_tarefa();
-    strcpy(novo_no->pos.descricao, descricao);
-    strcpy(novo_no->pos.prazo, prazo);
-    strcpy(novo_no->pos.status, "Nao concluida");
-    novo_no->pos.prioridade = indice_prioridade;
-    novo_no->pos.codigo;
-
-    return novo_no;
+void editar_tarefa (tarefa_nao_concluida *li, char *descricao, int indice_prioridade, char *prazo, int codigo) {
+    while (li && li->pos.codigo != codigo) {
+        li = li->prox;
+    }
+    if (li) {
+        strcpy(li->pos.descricao, descricao);
+        strcpy(li->pos.prazo, prazo);
+        li->pos.prioridade = indice_prioridade;
+    }
+    while (li->anterior)
+        li = li->anterior;
 }
 void imprimir_lista_tarefa(tarefa_nao_concluida *li){
     tarefa_nao_concluida *aux = li;
