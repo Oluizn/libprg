@@ -50,14 +50,14 @@ void remover_tarefa (estrutura **li, int num) {
         if ((*li)->pos.codigo == num) {
             remover = *li;
             *li = remover->prox;
-            free(remover);
+            // free(remover);
         }
         else {
             aux = *li;
             if(busca(aux, num)) {
                 remover = aux->prox;
                 aux->prox = remover->prox;
-                free(remover);
+                // free(remover);
             }
         }
     }
@@ -86,7 +86,7 @@ void imprimir_lista_tarefa(estrutura *li){
     if (aux == NULL)
         printf("A lista esta vazia!");
     while (aux) {
-        printf("%d\n", aux->pos.codigo);
+        printf("\n%d\n", aux->pos.codigo);
         printf("O que fazer: %s", aux->pos.descricao);
         printf("Prazo de conclusao: %s", aux->pos.prazo);
         if (aux->pos.prioridade == 1)
