@@ -61,6 +61,10 @@ void remover_tarefa (tarefa_nao_concluida **li, int num) {
             if (aux->prox) {
                 remover = aux->prox;
                 aux->prox = remover->prox;
+                if (remover->prox) {
+                    remover = remover->prox;
+                    remover->anterior = aux;
+                }
                 free(remover);
             }
             else
