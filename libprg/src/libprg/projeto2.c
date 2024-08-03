@@ -62,7 +62,7 @@ void remover_tarefa (tarefa_nao_concluida **li, int num) {
                 remover = aux->prox;
                 aux->prox = remover->prox;
                 if (remover->prox) {
-                    tarefa_nao_concluida *aux2 = remover->prox;
+                    tarefa_nao_concluida *aux2 = remover->prox; // ponteiro para carpturar o nó em sequencia para atribuir o ponteiro anterior para o nó anterior corretamente
                     aux2->anterior = aux;
                 }
                 free(remover);
