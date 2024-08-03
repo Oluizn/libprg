@@ -48,16 +48,16 @@ void remover_tarefa (estrutura **li, int num) {
         if ((*li)->pos.codigo == num) {
             remover = *li;
             *li = remover->prox;
-            // free(remover);
+            free(remover);
         }
         else {
             aux = *li;
-            while (aux->prox && aux->pos.codigo != num)
+            while (aux->prox && aux->prox->pos.codigo != num)
                 aux = aux->prox;
             if (aux->prox) {
                 remover = aux->prox;
                 aux->prox = remover->prox;
-                // free(remover);
+                free(remover);
             }
         }
     }
