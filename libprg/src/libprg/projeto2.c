@@ -88,6 +88,7 @@ void editar_tarefa (tarefa_nao_concluida *li, char *descricao, int indice_priori
     while (li->anterior)
         li = li->anterior;
 }
+
 void imprimir_lista_tarefa(tarefa_nao_concluida *li){
     tarefa_nao_concluida *aux = li;
     if (aux == NULL)
