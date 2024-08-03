@@ -7,18 +7,26 @@ typedef struct tarefa {
     int prioridade;
     char prazo[13];
     int conclusao[13];
+    char status [20];
 }tarefa;
 
-typedef struct estrutura_tarefa {
+typedef struct estrutura_tarefa_nao_concluida {
     tarefa pos;
-    struct estrutura_tarefa *prox;
-}estrutura;
+    struct estrutura_tarefa_nao_concluida *prox;
+    struct estrutura_tarefa_nao_concluida *anterior;
+}tarefa_nao_concluida;
 
-estrutura *criar_no_tarefa();
-estrutura *inserir_inicio_tarefa(estrutura* li, char* descricao, int indice_prioridade, char* prazo);
-void imprimir_lista_tarefa(estrutura *li);
+typedef struct estrutura_tarefa_concluida {
+    tarefa pos;
+    struct estrutura_tarefa_concluida *prox;
+    struct estrutura_tarefa_concluida *anterior;
+}tarefa_concluida;
+
+tarefa_nao_concluida *criar_no_tarefa();
+tarefa_nao_concluida *inserir_inicio_tarefa(tarefa_nao_concluida* li, char* descricao, int indice_prioridade, char* prazo);
+void imprimir_lista_tarefa(tarefa_nao_concluida *li);
 void menu_tarefas ();
-estrutura *busca (estrutura *li, int codigo);
-void remover_tarefa (estrutura **li, int num);
+tarefa_nao_concluida *busca (tarefa_nao_concluida *li, int codigo);
+void remover_tarefa (tarefa_nao_concluida **li, int num);
 
 #endif //PROJETO2_H

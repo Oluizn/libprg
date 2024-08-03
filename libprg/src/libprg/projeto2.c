@@ -3,8 +3,8 @@
 #include <string.h>
 #include <stdlib.h>
 
-estrutura *criar_no_tarefa(){
-    estrutura *novo = (estrutura *) malloc(sizeof (estrutura));
+tarefa_nao_concluida *criar_no_tarefa(){
+    tarefa_nao_concluida *novo = (tarefa_nao_concluida *) malloc(sizeof (tarefa_nao_concluida));
     if (novo == NULL) {
         printf("Erro na alocacao de memoria");
         exit(0);
@@ -12,26 +12,30 @@ estrutura *criar_no_tarefa(){
     return novo;
 }
 
-estrutura *inserir_inicio_tarefa(estrutura * li, char *descricao, int indice_prioridade, char* prazo){
-    estrutura * novo_no = criar_no_tarefa();
+tarefa_nao_concluida *inserir_inicio_tarefa(tarefa_nao_concluida *li, char *descricao, int indice_prioridade, char* prazo){
+    tarefa_nao_concluida *aux = li, * novo_no = criar_no_tarefa();
     strcpy(novo_no->pos.descricao, descricao);
     strcpy(novo_no->pos.prazo, prazo);
+    strcpy(novo_no->pos.status, "Nao concluida");
     novo_no->pos.prioridade = indice_prioridade;
     if (li == NULL) {
         novo_no->pos.codigo = 1;
         li = novo_no;
         novo_no->prox=NULL;
+        novo_no->anterior=NULL;
     }
     else{
-        novo_no->pos.codigo = li->pos.codigo + 1;
-        novo_no->prox=li;
-        li=novo_no;
+        while (aux->prox)
+            aux = aux->prox;
+        aux->prox = novo_no;
+        novo_no->prox = NULL;
+        novo_no->anterior = aux;
     }
     return li;
 }
 
-estrutura *busca (estrutura *li, int codigo) {
-    estrutura *aux = li;
+tarefa_nao_concluida *busca (tarefa_nao_concluida *li, int codigo) {
+    tarefa_nao_concluida *aux = li;
     while (aux) {
         if (codigo == aux->prox->pos.codigo)
             return aux;
@@ -41,9 +45,9 @@ estrutura *busca (estrutura *li, int codigo) {
     return NULL;
 }
 
-void remover_tarefa (estrutura **li, int num) {
-    estrutura *remover = NULL;
-    estrutura *aux = NULL;
+void remover_tarefa (tarefa_nao_concluida **li, int num) {
+    tarefa_nao_concluida *remover = NULL;
+    tarefa_nao_concluida *aux = NULL;
     if (*li) {
         if ((*li)->pos.codigo == num) {
             remover = *li;
@@ -66,28 +70,25 @@ void remover_tarefa (estrutura **li, int num) {
     }
 }
 
-void editar_tarefa (estrutura *li, char *descricao, int indice_de_prioridade, char *prazo, int codigo) {
-    if (li) {
-        while (li) {
-            if (li->pos.codigo == codigo) {
-                strcpy(li->pos.descricao, descricao);
-                strcpy(li->pos.prazo, prazo);
-            }
-            li = li->prox;
-        }
-    }
-    else {
-        printf("A lista esta vazia\n");
-    }
+tarefa_nao_concluida *editar_tarefa (tarefa_nao_concluida *li, char *descricao, int indice_prioridade, char *prazo, int codigo) {
+    tarefa_nao_concluida *aux = li, * novo_no = criar_no_tarefa();
+    strcpy(novo_no->pos.descricao, descricao);
+    strcpy(novo_no->pos.prazo, prazo);
+    strcpy(novo_no->pos.status, "Nao concluida");
+    novo_no->pos.prioridade = indice_prioridade;
+    novo_no->pos.codigo;
+
+    return novo_no;
 }
-void imprimir_lista_tarefa(estrutura *li){
-    estrutura *aux = li;
+void imprimir_lista_tarefa(tarefa_nao_concluida *li){
+    tarefa_nao_concluida *aux = li;
     if (aux == NULL)
         printf("A lista esta vazia!");
     while (aux) {
         printf("\n%d\n", aux->pos.codigo);
         printf("O que fazer: %s", aux->pos.descricao);
         printf("Prazo de conclusao: %s", aux->pos.prazo);
+        printf("Status: %s", aux->pos.status);
         if (aux->pos.prioridade == 1)
             printf("Nivel de prioridade: Baixo\n");
         else if (aux->pos.prioridade == 2)
