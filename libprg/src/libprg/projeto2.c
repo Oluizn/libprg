@@ -48,7 +48,7 @@ tarefa_nao_concluida *busca (tarefa_nao_concluida *li, int codigo) {
 
 void remover_tarefa (tarefa_nao_concluida **li, int num) {
     tarefa_nao_concluida *remover = NULL;
-    tarefa_nao_concluida *aux = NULL;
+    tarefa_nao_concluida *aux = *li;
     if (*li) {
         if ((*li)->pos.codigo == num) {
             remover = *li;
@@ -56,7 +56,6 @@ void remover_tarefa (tarefa_nao_concluida **li, int num) {
             free(remover);
         }
         else {
-            aux = *li;
             while (aux->prox && aux->prox->pos.codigo != num)
                 aux = aux->prox;
             if (aux->prox) {
@@ -64,6 +63,8 @@ void remover_tarefa (tarefa_nao_concluida **li, int num) {
                 aux->prox = remover->prox;
                 free(remover);
             }
+            else
+                printf("Elemento nao encotrado");
         }
     }
     else {
