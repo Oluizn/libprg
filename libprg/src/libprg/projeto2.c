@@ -30,6 +30,7 @@ tarefa_nao_concluida *inserir_inicio_tarefa(tarefa_nao_concluida *li, char *desc
         aux->prox = novo_no;
         novo_no->prox = NULL;
         novo_no->anterior = aux;
+        novo_no->pos.codigo = aux->pos.codigo + 1;
     }
     return li;
 }
@@ -86,9 +87,9 @@ void imprimir_lista_tarefa(tarefa_nao_concluida *li){
         printf("A lista esta vazia!");
     while (aux) {
         printf("\n%d\n", aux->pos.codigo);
-        printf("O que fazer: %s", aux->pos.descricao);
-        printf("Prazo de conclusao: %s", aux->pos.prazo);
-        printf("Status: %s", aux->pos.status);
+        printf("O que fazer: %s\n", aux->pos.descricao);
+        printf("Prazo de conclusao: %s\n", aux->pos.prazo);
+        printf("Status: %s\n", aux->pos.status);
         if (aux->pos.prioridade == 1)
             printf("Nivel de prioridade: Baixo\n");
         else if (aux->pos.prioridade == 2)
