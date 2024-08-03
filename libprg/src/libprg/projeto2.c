@@ -35,7 +35,7 @@ estrutura *inserir_inicio_tarefa(estrutura * li, char *descricao, int indice_pri
 estrutura *busca (estrutura *li, int codigo) {
     estrutura *aux = li;
     while (aux) {
-        if (codigo == aux->pos.codigo)
+        if (codigo == aux->prox->pos.codigo)
             return aux;
         aux = aux->prox;
     }
@@ -54,9 +54,12 @@ void remover_tarefa (estrutura **li, int num) {
         }
         else {
             aux = *li;
-            if(busca(aux, num)) {
+            while (aux->prox && aux->pos.codigo != num)
+                aux = aux->prox;
+            if (aux->prox) {
                 remover = aux->prox;
                 aux->prox = remover->prox;
+                remover->prox->anterior = remover->anterior;
                 free(remover);
             }
         }
@@ -66,20 +69,21 @@ void remover_tarefa (estrutura **li, int num) {
     }
 }
 
-estrutura *editar_tarefa (estrutura **li, char *descricao, int indice_de_prioridade, char *prazo, int codigo) {
-    estrutura *editar = NULL;
-    estrutura *aux = NULL;
-    if (*li) {
-        aux = *li;
-        if(busca(aux, codigo)) {
-            editar = aux->prox;
-            aux->prox = editar->prox;
+void editar_tarefa (estrutura *li, char *descricao, int indice_de_prioridade, char *prazo, int codigo) {
+    if (li) {
+        while (li) {
+            if (li->pos.codigo == codigo) {
+                strcpy(li->pos.descricao, descricao);
+                strcpy(li->pos.prazo, prazo);
+            }
+            li = li->prox;
         }
+        while (li)
+            li = li->anterior;
     }
     else {
         printf("A lista esta vazia\n");
     }
-    return editar;
 }
 void imprimir_lista_tarefa(estrutura *li){
     estrutura *aux = li;
