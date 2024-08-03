@@ -43,7 +43,7 @@ estrutura *busca (estrutura *li, int codigo) {
     return NULL;
 }
 
-estrutura *remover_tarefa (estrutura **li, int num) {
+void remover_tarefa (estrutura **li, int num) {
     estrutura *remover = NULL;
     estrutura *aux = NULL;
     if (*li) {
@@ -62,7 +62,22 @@ estrutura *remover_tarefa (estrutura **li, int num) {
     else {
         printf("A lista esta vazia\n");
     }
-    return remover;
+}
+
+estrutura *editar_tarefa (estrutura **li, char *descricao, int indice_de_prioridade, char *prazo, int codigo) {
+    estrutura *editar = NULL;
+    estrutura *aux = NULL;
+    if (*li) {
+        aux = *li;
+        if(busca(aux, codigo)) {
+            editar = aux->prox;
+            aux->prox = editar->prox;
+        }
+    }
+    else {
+        printf("A lista esta vazia\n");
+    }
+    return editar;
 }
 void imprimir_lista_tarefa(estrutura *li){
     estrutura *aux = li;

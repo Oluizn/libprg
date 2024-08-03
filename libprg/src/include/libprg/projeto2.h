@@ -20,6 +20,6 @@ estrutura *inserir_inicio_tarefa(estrutura* li, char* descricao, int indice_prio
 void imprimir_lista_tarefa(estrutura *li);
 void menu_tarefas ();
 estrutura *busca (estrutura *li, int codigo);
-estrutura *remover_tarefa (estrutura **li, int num);
+void remover_tarefa (estrutura **li, int num);
 
 #endif //PROJETO2_H
