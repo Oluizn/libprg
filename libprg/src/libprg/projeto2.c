@@ -83,6 +83,8 @@ estrutura *editar_tarefa (estrutura **li, char *descricao, int indice_de_priorid
 }
 void imprimir_lista_tarefa(estrutura *li){
     estrutura *aux = li;
+    if (aux == NULL)
+        printf("A lista esta vazia!");
     while (aux) {
         printf("%d\n", aux->pos.codigo);
         printf("O que fazer: %s", aux->pos.descricao);
