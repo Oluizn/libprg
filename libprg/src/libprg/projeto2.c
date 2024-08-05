@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "time.h"
 
 tarefa_no *criar_no(){
     tarefa_no *novo = (tarefa_no *) malloc(sizeof (tarefa_no));
@@ -16,6 +17,7 @@ tarefa_no *inserir_tarefa(tarefa_no *li, char *descricao, int indice_prioridade,
     strcpy(novo_no->pos.descricao, descricao);
     strcpy(novo_no->pos.prazo, prazo);
     strcpy(novo_no->pos.status, "Nao concluida");
+    strcpy(novo_no->pos.conclusao, "");
     novo_no->pos.prioridade = indice_prioridade;
     if (li == NULL) {
         novo_no->pos.codigo = 1;
@@ -119,8 +121,22 @@ void editar_tarefa_prazo (tarefa_no *li, char *novo_prazo, int codigo) {
 
 void concluir_tarefa (tarefa_no *li, int codigo) {
     tarefa_no *aux = busca(li, codigo);
-    if (aux)
+    if (aux) {
+        char str1[13], str2[2], str3[2];
         strcpy(aux->pos.status, "concluida");
+        struct tm *data;
+        time_t segundos;
+        time(&segundos);
+        data = localtime(&segundos);
+        sprintf(str1, "%d", data->tm_mday);
+        sprintf(str2, "%d", data->tm_mon+1);
+        sprintf(str3, "%d", data->tm_year+1900);
+        strcat(str1, "/");
+        strcat(str2, "/");
+        strcat(str1, str2);
+        strcat(str1, str3);
+        strcpy(aux->pos.conclusao, str1);
+    }
 }
 
 void imprimir_lista_tarefa(tarefa_no *li){
@@ -132,6 +148,7 @@ void imprimir_lista_tarefa(tarefa_no *li){
         printf("O que fazer: %s\n", aux->pos.descricao);
         printf("Prazo de conclusao: %s\n", aux->pos.prazo);
         printf("Status: %s\n", aux->pos.status);
+        printf("Data de conclusão: %s\n", aux->pos.conclusao);
         if (aux->pos.prioridade == 1)
             printf("Nivel de prioridade: Baixo\n");
         else if (aux->pos.prioridade == 2)
