@@ -38,7 +38,7 @@ tarefa_no *inserir_tarefa(tarefa_no *li, char *descricao, int indice_prioridade,
 tarefa_no *busca (tarefa_no *li, int codigo) {
     tarefa_no *aux = li;
     while (aux) {
-        if (codigo == aux->prox->pos.codigo) // TODO -> adicionar comparação com primeiro caracter da descrição, comparação de prazo
+        if (aux->pos.codigo == codigo) // TODO -> adicionar comparação com primeiro caracter da descrição, comparação de prazo
             return aux;
         aux = aux->prox;
     }
