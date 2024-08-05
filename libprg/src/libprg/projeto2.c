@@ -68,7 +68,7 @@ void remover_tarefa (tarefa_no **li, int num) {
                 free(remover); // TODO -> vericar se a liberação de memoria está correta
             }
             else
-                printf("Elemento nao encotrado");
+                printf("Elemento nao encotrado\n");
         }
     }
     else {
