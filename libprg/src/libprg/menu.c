@@ -70,6 +70,7 @@ void menu_tarefas () {
                         fgets(nova_descricao, 100, stdin);
                         fflush(stdin);
                         editar_tarefa_descricao(lista_tarefa, nova_descricao, codigo);
+                        break;;
                     }
                     if(operador_edicao == 2) {
                         fflush(stdin);
@@ -77,15 +78,19 @@ void menu_tarefas () {
                         scanf("%d", &novo_prioridade);
                         fflush(stdin);
                         editar_tarefa_prioridade(lista_tarefa, novo_prioridade, codigo);
+                        break;
                     }
                     if(operador_edicao == 3) {
                         printf("Insira o novo prazo: ");
                         fgets(prazo, 13, stdin);
                         fflush(stdin);
                         editar_tarefa_prazo(lista_tarefa, prazo, codigo);
+                        break;;
                     }
-                    else
+                    else {
                         printf("Valor invalido");
+                        break;
+                    }
                     }
                 default:
                     printf("Opcao invalida, escolha entre 1 e 3, ou pressione 9 para sair\n");
