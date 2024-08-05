@@ -77,42 +77,28 @@ void remover_tarefa (tarefa_no **li, int num) {
 }
 
 // TODO -> verificar o por que desse aviso que o parametro pode ser descrito como const char
-void editar_tarefa_descricao (tarefa_no *li, char *nova_descricao, int codigo) { // TODO -> verificar se existe um método mais eficas para encontrar o elemento que deseja editar na lista
-    while (li && li->pos.codigo != codigo) { // TODO -> testar implementando um novo ponteiro que ponta para li, em seguida incrementa-lo até encontrar o elemento que deseja editar
-        li = li->prox;
-    }
-    if (li) {
-        strcpy(li->pos.descricao, nova_descricao);
-    }
-    while (li->anterior) // TODO -> verficar o impacto de alerta de pointer may be null para a aplicação
-        li = li->anterior;
+void editar_tarefa_descricao (tarefa_no *li, char *nova_descricao, int codigo) {
+    tarefa_no *aux = busca(li, codigo);
+    if (aux)
+        strcpy(aux->pos.descricao, nova_descricao);
 }
 
 void editar_tarefa_prioridade (tarefa_no *li, int novo_indice_prioridade, int codigo) {
-    while (li && li->pos.codigo != codigo) {
-        li = li->prox;
-    }
-    if (li) {
-        li->pos.prioridade = novo_indice_prioridade;
-    }
-    while (li->anterior) // TODO -> verficar o impacto de alerta de pointer may be null para a aplicação
-        li = li->anterior;
+    tarefa_no *aux = busca(li, codigo);
+    if (aux)
+        aux->pos.prioridade = novo_indice_prioridade;
 }
 // TODO -> verificar o por que desse aviso que o parametro pode ser descrito como const char
 void editar_tarefa_prazo (tarefa_no *li, char *novo_prazo, int codigo) {
-    while (li && li->pos.codigo != codigo) {
-        li = li->prox;
-    }
-    if (li) {
-        strcpy(li->pos.prazo, novo_prazo);
-    }
-    while (li->anterior) // TODO -> verficar o impacto de alerta de pointer may be null para a aplicação
-        li = li->anterior;
+    tarefa_no *aux = busca(li, codigo);
+    if (aux)
+        strcpy(aux->pos.prazo, novo_prazo);
 }
 
 void concluir_tarefa (tarefa_no *li, int codigo) {
     tarefa_no *aux = busca(li, codigo);
-    strcpy(aux->pos.status, "concluida");
+    if (aux)
+        strcpy(aux->pos.status, "concluida");
 }
 
 void imprimir_lista_tarefa(tarefa_no *li){
