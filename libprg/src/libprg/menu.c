@@ -87,11 +87,9 @@ void menu_tarefas () {
                         editar_tarefa_prazo(lista_tarefa, prazo, codigo);
                         break;;
                     }
-                    else {
-                        printf("Valor invalido");
-                        break;
-                    }
-                    }
+                    printf("Valor invalido");
+                    break;
+                }
                 default:
                     printf("Opcao invalida, escolha entre 1 e 3, ou pressione 9 para sair\n");
                 fflush(stdin);
