@@ -54,7 +54,7 @@ void menu_tarefas () {
                     }
                     break;
                 }
-                case 4: { // TODO -> formular menu para edição da tarefa
+                case 4: {
                     int codigo, operador_edicao, novo_prioridade;
                     char nova_descricao[100], prazo[13];
                     fflush(stdin);
@@ -92,7 +92,7 @@ void menu_tarefas () {
                         fflush(stdin);
                         editar_tarefa_prazo(lista_tarefa, prazo, codigo);
                         printf("Prazo alterado com sucesso!!!\n");
-                        break;;
+                        break;
                     }
                     printf("Valor invalido\n");
                     break;
@@ -103,6 +103,6 @@ void menu_tarefas () {
             }
         }
         else
-            printf("Adeus!.\n");
+            printf("Adeus!\n");
     }
 }
