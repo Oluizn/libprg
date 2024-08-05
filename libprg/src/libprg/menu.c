@@ -19,7 +19,7 @@ void menu_tarefas () { // TODO mover menu para o diretorio do projeto, mover tod
         if(operador != 9){
             switch (operador) {
                 case 1: { // TODO -> verificar o por que da função fgets não funcionar corretamente no linux ubuntu
-                    char descricao[100], prazo[13];
+                    char descricao[100] = "", prazo[13];
                     int prioridade;
 //                    fflush(stdin);
                     printf("Por favor informe a descricao da tarefa:");
