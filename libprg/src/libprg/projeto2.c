@@ -109,6 +109,12 @@ void editar_tarefa_prazo (tarefa_no *li, char *novo_prazo, int codigo) {
     while (li->anterior) // TODO -> verficar o impacto de alerta de pointer may be null para a aplicação
         li = li->anterior;
 }
+
+void concluir_tarefa (tarefa_no *li, int codigo) {
+    tarefa_no *aux = busca(li, codigo);
+    strcpy(aux->pos.status, "concluida");
+}
+
 void imprimir_lista_tarefa(tarefa_no *li){
     tarefa_no *aux = li;
     if (aux == NULL)
