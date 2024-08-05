@@ -31,6 +31,7 @@ void menu_tarefas () {
                     scanf("%d", &prioridade);
                     fflush(stdin);
                     lista_tarefa = inserir_tarefa(lista_tarefa, descricao, prioridade, prazo);
+                    printf("Tarefa inserida com sucesso!!!\n");
                     break;
                 }
                 case 2: {
@@ -49,6 +50,7 @@ void menu_tarefas () {
                         scanf("%d", &operador_removedor);
                         fflush(stdin);
                         remover_tarefa(&lista_tarefa, operador_removedor);
+                        printf("Tarefa removida com sucesso!!!");
                     }
                     break;
                 }
@@ -71,6 +73,7 @@ void menu_tarefas () {
                         fgets(nova_descricao, 100, stdin);
                         fflush(stdin);
                         editar_tarefa_descricao(lista_tarefa, nova_descricao, codigo);
+                        printf("Descricao editada com sucesso!!!\n");
                         break;;
                     }
                     if(operador_edicao == 2) {
@@ -79,6 +82,7 @@ void menu_tarefas () {
                         scanf("%d", &novo_prioridade);
                         fflush(stdin);
                         editar_tarefa_prioridade(lista_tarefa, novo_prioridade, codigo);
+                        printf("Prioridade alterada com sucesso!!!\n");
                         break;
                     }
                     if(operador_edicao == 3) {
@@ -87,13 +91,14 @@ void menu_tarefas () {
                         fgets(prazo, 13, stdin);
                         fflush(stdin);
                         editar_tarefa_prazo(lista_tarefa, prazo, codigo);
+                        printf("Prazo alterado com sucesso!!!\n");
                         break;;
                     }
-                    printf("Valor invalido");
+                    printf("Valor invalido\n");
                     break;
                 }
                 default:
-                    printf("Opcao invalida, escolha entre 1 e 3, ou pressione 9 para sair\n");
+                    printf("Opcao invalida, escolha entre x e y, ou pressione 9 para sair\n");
                 fflush(stdin);
             }
         }
