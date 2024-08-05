@@ -6,7 +6,6 @@
 tarefa_no *criar_no(){
     tarefa_no *novo = (tarefa_no *) malloc(sizeof (tarefa_no));
     if (novo == NULL) {
-        printf("Erro na alocacao de memoria");
         exit(0);
     }
     return novo;
@@ -84,7 +83,7 @@ void remover_tarefa (tarefa_no **li, int num) {
             *li = remover->prox;
             free(remover);
         }
-        else {  // TODO -> tentar implementar essa função utilizando a funçao de busca acima
+        else {
             while (aux->prox && aux->prox->pos.codigo != num)
                 aux = aux->prox;
             if (aux->prox) {
@@ -96,12 +95,7 @@ void remover_tarefa (tarefa_no **li, int num) {
                 }
                 free(remover);
             }
-            else
-                printf("Elemento nao encotrado\n");
         }
-    }
-    else {
-        printf("A lista esta vazia\n");
     }
 }
 
