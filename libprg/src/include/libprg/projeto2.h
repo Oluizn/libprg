@@ -21,6 +21,9 @@ tarefa_no *inserir_tarefa(tarefa_no* li, char* descricao, int indice_prioridade,
 void imprimir_lista_tarefa(tarefa_no *li);
 void menu_tarefas ();
 tarefa_no *busca (tarefa_no *li, int codigo);
+tarefa_no *busca_codigo (tarefa_no *li, int codigo);
+tarefa_no *busca_prazo (tarefa_no *li, char *prazo);
+tarefa_no *busca_descricao (tarefa_no *li, char *descricao);
 void remover_tarefa (tarefa_no **li, int num);
 void editar_tarefa_descricao (tarefa_no *li, char *nova_descricao, int codigo);
 void editar_tarefa_prioridade (tarefa_no *li, int novo_indice_prioridade, int codigo);

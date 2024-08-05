@@ -35,6 +35,16 @@ tarefa_no *inserir_tarefa(tarefa_no *li, char *descricao, int indice_prioridade,
     return li;
 }
 
+tarefa_no *busca_codigo (tarefa_no *li, int codigo) {
+    tarefa_no *aux = li;
+    while (aux) {
+        if (aux->pos.codigo == codigo) // TODO -> adicionar comparação com primeiro caracter da descrição, comparação de prazo
+            return aux;
+        aux = aux->prox;
+    }
+    return NULL;
+}
+
 tarefa_no *busca (tarefa_no *li, int codigo) {
     tarefa_no *aux = li;
     while (aux) {
@@ -42,7 +52,26 @@ tarefa_no *busca (tarefa_no *li, int codigo) {
             return aux;
         aux = aux->prox;
     }
-    printf("Tarefa não encontrada\n");
+    return NULL;
+}
+
+tarefa_no *busca_descricao (tarefa_no *li, char *descricao) {
+    tarefa_no *aux = li;
+    while (aux) {
+        if (strcmp(descricao, aux->pos.descricao) == 0) // TODO -> adicionar comparação com primeiro caracter da descrição, comparação de prazo
+            return aux;
+        aux = aux->prox;
+    }
+    return NULL;
+}
+
+tarefa_no *busca_prazo (tarefa_no *li, char *prazo) {
+    tarefa_no *aux = li;
+    while (aux) {
+        if (strcmp(prazo, aux->pos.prazo) == 0) // TODO -> adicionar comparação com primeiro caracter da descrição, comparação de prazo
+            return aux;
+        aux = aux->prox;
+    }
     return NULL;
 }
 
