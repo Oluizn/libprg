@@ -18,9 +18,9 @@ void menu_tarefas () {
         if(operador != 9){
             switch (operador) {
                 case 1: { // TODO -> verificar o por que da função fgets não funcionar corretamente no linux ubuntu
-                    fflush(stdin);
                     char descricao[100], prazo[13];
                     int prioridade;
+                    fflush(stdin);
                     printf("Por favor informe a descricao da tarefa:");
                     fgets(descricao, 100, stdin);
                     fflush(stdin);
@@ -44,6 +44,7 @@ void menu_tarefas () {
                     if (lista_tarefa) {
                         printf("\n");
                         int operador_removedor;
+                        fflush(stdin);
                         printf("Por favor, insira o codigo da tarefa que deseja remover: ");
                         scanf("%d", &operador_removedor);
                         fflush(stdin);
