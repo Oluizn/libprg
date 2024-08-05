@@ -3,8 +3,8 @@
 #include <string.h>
 #include <stdlib.h>
 
-tarefa_nao_concluida *criar_no_tarefa(){
-    tarefa_nao_concluida *novo = (tarefa_nao_concluida *) malloc(sizeof (tarefa_nao_concluida));
+tarefa_no *criar_no(){
+    tarefa_no *novo = (tarefa_no *) malloc(sizeof (tarefa_no));
     if (novo == NULL) {
         printf("Erro na alocacao de memoria");
         exit(0);
@@ -12,8 +12,8 @@ tarefa_nao_concluida *criar_no_tarefa(){
     return novo;
 }
 
-tarefa_nao_concluida *inserir_inicio_tarefa(tarefa_nao_concluida *li, char *descricao, int indice_prioridade, char* prazo){
-    tarefa_nao_concluida *aux = li, * novo_no = criar_no_tarefa();
+tarefa_no *inserir_tarefa(tarefa_no *li, char *descricao, int indice_prioridade, char* prazo){ // TODO -> verificar o por que desse aviso que o parametro pode ser descrito como const char
+    tarefa_no *aux = li, * novo_no = criar_no();
     strcpy(novo_no->pos.descricao, descricao);
     strcpy(novo_no->pos.prazo, prazo);
     strcpy(novo_no->pos.status, "Nao concluida");
@@ -35,10 +35,10 @@ tarefa_nao_concluida *inserir_inicio_tarefa(tarefa_nao_concluida *li, char *desc
     return li;
 }
 
-tarefa_nao_concluida *busca (tarefa_nao_concluida *li, int codigo) {
-    tarefa_nao_concluida *aux = li;
+tarefa_no *busca (tarefa_no *li, int codigo) {
+    tarefa_no *aux = li;
     while (aux) {
-        if (codigo == aux->prox->pos.codigo)
+        if (codigo == aux->prox->pos.codigo) // TODO -> adicionar comparação com primeiro caracter da descrição, comparação de prazo
             return aux;
         aux = aux->prox;
     }
@@ -46,26 +46,26 @@ tarefa_nao_concluida *busca (tarefa_nao_concluida *li, int codigo) {
     return NULL;
 }
 
-void remover_tarefa (tarefa_nao_concluida **li, int num) {
-    tarefa_nao_concluida *remover = NULL;
-    tarefa_nao_concluida *aux = *li;
+void remover_tarefa (tarefa_no **li, int num) {
+    tarefa_no *remover = NULL;
+    tarefa_no *aux = *li;
     if (*li) {
         if ((*li)->pos.codigo == num) {
             remover = *li;
             *li = remover->prox;
-            free(remover);
+            free(remover); // TODO -> vericar se a liberação de memoria está correta
         }
-        else {
+        else {  // TODO -> tentar implementar essa função utilizando a funççao de busca acima
             while (aux->prox && aux->prox->pos.codigo != num)
                 aux = aux->prox;
             if (aux->prox) {
                 remover = aux->prox;
                 aux->prox = remover->prox;
                 if (remover->prox) {
-                    tarefa_nao_concluida *aux2 = remover->prox; // ponteiro para carpturar o nó em sequencia para atribuir o ponteiro anterior para o nó anterior corretamente
+                    tarefa_no *aux2 = remover->prox; // ponteiro para carpturar o nó em sequencia para atribuir o ponteiro anterior para o nó anterior corretamente, após a remoção feita
                     aux2->anterior = aux;
                 }
-                free(remover);
+                free(remover); // TODO -> vericar se a liberação de memoria está correta
             }
             else
                 printf("Elemento nao encotrado");
@@ -76,21 +76,41 @@ void remover_tarefa (tarefa_nao_concluida **li, int num) {
     }
 }
 
-void editar_tarefa (tarefa_nao_concluida *li, char *descricao, int indice_prioridade, char *prazo, int codigo) {
+// TODO -> verificar o por que desse aviso que o parametro pode ser descrito como const char
+void editar_tarefa_descricao (tarefa_no *li, char *nova_descricao, int codigo) { // TODO -> verificar se existe um método mais eficas para encontrar o elemento que deseja editar na lista
+    while (li && li->pos.codigo != codigo) { // TODO -> testar implementando um novo ponteiro que ponta para li, em seguida incrementa-lo até encontrar o elemento que deseja editar
+        li = li->prox;
+    }
+    if (li) {
+        strcpy(li->pos.descricao, nova_descricao);
+    }
+    while (li->anterior) // TODO -> verficar o impacto de alerta de pointer may be null para a aplicação
+        li = li->anterior;
+}
+
+void editar_tarefa_prioridade (tarefa_no *li, int novo_indice_prioridade, int codigo) {
     while (li && li->pos.codigo != codigo) {
         li = li->prox;
     }
     if (li) {
-        strcpy(li->pos.descricao, descricao);
-        strcpy(li->pos.prazo, prazo);
-        li->pos.prioridade = indice_prioridade;
+        li->pos.prioridade = novo_indice_prioridade;
     }
-    while (li->anterior)
+    while (li->anterior) // TODO -> verficar o impacto de alerta de pointer may be null para a aplicação
         li = li->anterior;
 }
-
-void imprimir_lista_tarefa(tarefa_nao_concluida *li){
-    tarefa_nao_concluida *aux = li;
+// TODO -> verificar o por que desse aviso que o parametro pode ser descrito como const char
+void editar_tarefa_prazo (tarefa_no *li, char *novo_prazo, int codigo) {
+    while (li && li->pos.codigo != codigo) {
+        li = li->prox;
+    }
+    if (li) {
+        strcpy(li->pos.prazo, novo_prazo);
+    }
+    while (li->anterior) // TODO -> verficar o impacto de alerta de pointer may be null para a aplicação
+        li = li->anterior;
+}
+void imprimir_lista_tarefa(tarefa_no *li){
+    tarefa_no *aux = li;
     if (aux == NULL)
         printf("A lista esta vazia!");
     while (aux) {

@@ -1,26 +1,23 @@
 #include "libprg/projeto2.h"
 #include "stdio.h"
-#include "string.h"
-#include "stdlib.h"
-
 
 void menu_tarefas () {
     int operador = 0;
-    tarefa_nao_concluida *lista_tarefa_nao_concluida = NULL;
-    tarefa_concluida *lista_tarefa_concluida = NULL;
+    tarefa_no *lista_tarefa_nao_concluida = NULL;
     while (operador != 9) {
         fflush(stdin);
         printf("Escolha uma acao:\n");
         printf("1 - Nova tarefa:\n");
         printf("2 - Lista de tarefas:\n");
         printf("3 - Remover tarefa:\n");
+        printf("4 - Editar tarefa:\n");
         printf("9 - Sair.\n");
 
         scanf("%d", &operador);
 
         if(operador != 9){
             switch (operador) {
-                case 1: {
+                case 1: { // TODO -> verificar o por que da função fgets não funcionar corretamente no linux ubuntu
                     fflush(stdin);
                     char descricao[100], prazo[13];
                     int prioridade;
@@ -33,7 +30,7 @@ void menu_tarefas () {
                     printf("Por favor informe o nivel de prioridade da tarefa.\n1 - Baixo\n2 - Medio\n3 - Alto\n");
                     scanf("%d", &prioridade);
                     fflush(stdin);
-                    lista_tarefa_nao_concluida = inserir_inicio_tarefa(lista_tarefa_nao_concluida, descricao, prioridade, prazo);
+                    lista_tarefa_nao_concluida = inserir_tarefa(lista_tarefa_nao_concluida, descricao, prioridade, prazo);
                     break;
                 }
                 case 2: {
@@ -54,6 +51,20 @@ void menu_tarefas () {
                     }
                     break;
                 }
+                case 4: { // TODO -> formular menu para edição da tarefa
+                    int codigo, operador_edicao;
+                    fflush(stdin);
+                    imprimir_lista_tarefa(lista_tarefa_nao_concluida);
+                    printf("Digite o codigo da tarefa que deseja editar:\n");
+                    scanf("%d", &codigo);
+                    fflush(stdin);
+                    printf("Escolha o que deseja editar: \n");
+                    printf("1 - descricao:");
+                    printf("2 - prioridade:");
+                    printf("3 - prazo:");
+                    scanf("%d", &operador_edicao);
+
+                    }
                 default:
                     printf("Opcao invalida, escolha entre 1 e 3, ou pressione 9 para sair\n");
                 fflush(stdin);
