@@ -55,7 +55,7 @@ void remover_tarefa (tarefa_no **li, int num) {
             *li = remover->prox;
             free(remover); // TODO -> vericar se a liberação de memoria está correta
         }
-        else {  // TODO -> tentar implementar essa função utilizando a funççao de busca acima
+        else {  // TODO -> tentar implementar essa função utilizando a funçao de busca acima
             while (aux->prox && aux->prox->pos.codigo != num)
                 aux = aux->prox;
             if (aux->prox) {
