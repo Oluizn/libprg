@@ -12,7 +12,7 @@ tarefa_no *criar_no(){
     return novo;
 }
 
-tarefa_no *inserir_tarefa(tarefa_no *li, char *descricao, int indice_prioridade, char* prazo){ // TODO -> verificar o por que desse aviso que o parametro pode ser descrito como const char
+tarefa_no *inserir_tarefa(tarefa_no *li, char *descricao, int indice_prioridade, char* prazo){
     tarefa_no *aux = li, * novo_no = criar_no();
     strcpy(novo_no->pos.descricao, descricao);
     strcpy(novo_no->pos.prazo, prazo);
@@ -38,7 +38,7 @@ tarefa_no *inserir_tarefa(tarefa_no *li, char *descricao, int indice_prioridade,
 tarefa_no *busca_codigo (tarefa_no *li, int codigo) {
     tarefa_no *aux = li;
     while (aux) {
-        if (aux->pos.codigo == codigo) // TODO -> adicionar comparação com primeiro caracter da descrição, comparação de prazo
+        if (aux->pos.codigo == codigo)
             return aux;
         aux = aux->prox;
     }
@@ -82,7 +82,7 @@ void remover_tarefa (tarefa_no **li, int num) {
         if ((*li)->pos.codigo == num) {
             remover = *li;
             *li = remover->prox;
-            free(remover); // TODO -> vericar se a liberação de memoria está correta
+            free(remover);
         }
         else {  // TODO -> tentar implementar essa função utilizando a funçao de busca acima
             while (aux->prox && aux->prox->pos.codigo != num)
@@ -94,7 +94,7 @@ void remover_tarefa (tarefa_no **li, int num) {
                     tarefa_no *aux2 = remover->prox; // ponteiro para carpturar o nó em sequencia para atribuir o ponteiro anterior para o nó anterior corretamente, após a remoção feita
                     aux2->anterior = aux;
                 }
-                free(remover); // TODO -> vericar se a liberação de memoria está correta
+                free(remover);
             }
             else
                 printf("Elemento nao encotrado\n");
@@ -105,7 +105,6 @@ void remover_tarefa (tarefa_no **li, int num) {
     }
 }
 
-// TODO -> verificar o por que desse aviso que o parametro pode ser descrito como const char
 void editar_tarefa_descricao (tarefa_no *li, char *nova_descricao, int codigo) {
     tarefa_no *aux = busca(li, codigo);
     if (aux)
@@ -117,7 +116,7 @@ void editar_tarefa_prioridade (tarefa_no *li, int novo_indice_prioridade, int co
     if (aux)
         aux->pos.prioridade = novo_indice_prioridade;
 }
-// TODO -> verificar o por que desse aviso que o parametro pode ser descrito como const char
+
 void editar_tarefa_prazo (tarefa_no *li, char *novo_prazo, int codigo) {
     tarefa_no *aux = busca(li, codigo);
     if (aux)
