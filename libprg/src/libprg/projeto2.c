@@ -139,23 +139,23 @@ void concluir_tarefa (tarefa_no *li, int codigo) {
     }
 }
 
-void imprimir_lista_tarefa(tarefa_no *li){
-    tarefa_no *aux = li;
-    if (aux == NULL)
-        printf("A lista esta vazia!");
-    while (aux) {
-        printf("\n%d\n", aux->pos.codigo);
-        printf("O que fazer: %s\n", aux->pos.descricao);
-        printf("Prazo de conclusao: %s\n", aux->pos.prazo);
-        printf("Status: %s\n", aux->pos.status);
-        printf("Data de conclusão: %s\n", aux->pos.conclusao);
-        if (aux->pos.prioridade == 1)
-            printf("Nivel de prioridade: Baixo\n");
-        else if (aux->pos.prioridade == 2)
-            printf("Nivel de prioridade: Medio\n");
-        else if (aux->pos.prioridade == 3)
-            printf("Nivel de prioridade: Alto\n");
-        aux = aux->prox;
-    }
-    printf("\n\n");
-}
+// void imprimir_lista_tarefa(tarefa_no *li){
+//     tarefa_no *aux = li;
+//     if (aux == NULL)
+//         printf("A lista esta vazia!");
+//     while (aux) {
+//         printf("\n%d\n", aux->pos.codigo);
+//         printf("O que fazer: %s\n", aux->pos.descricao);
+//         printf("Prazo de conclusao: %s\n", aux->pos.prazo);
+//         printf("Status: %s\n", aux->pos.status);
+//         printf("Data de conclusão: %s\n", aux->pos.conclusao);
+//         if (aux->pos.prioridade == 1)
+//             printf("Nivel de prioridade: Baixo\n");
+//         else if (aux->pos.prioridade == 2)
+//             printf("Nivel de prioridade: Medio\n");
+//         else if (aux->pos.prioridade == 3)
+//             printf("Nivel de prioridade: Alto\n");
+//         aux = aux->prox;
+//     }
+//     printf("\n\n");
+// }
