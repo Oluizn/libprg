@@ -60,23 +60,25 @@ void menu_tarefas () {
                     scanf("%d", &codigo);
                     fflush(stdin);
                     printf("Escolha o que deseja editar: \n");
-                    printf("1 - descricao:");
-                    printf("2 - prioridade:");
-                    printf("3 - prazo:");
+                    printf("1 - descricao.\n");
+                    printf("2 - prioridade.\n");
+                    printf("3 - prazo.\n");
                     scanf("%d", &operador_edicao);
                     if(operador_edicao == 1) {
+                        fflush(stdin);
                         printf("Insira a nova descricao: ");
                         fgets(nova_descricao, 100, stdin);
                         fflush(stdin);
                         editar_tarefa_descricao(lista_tarefa, nova_descricao, codigo);
                     }
-                    else if(operador_edicao == 2) {
+                    if(operador_edicao == 2) {
+                        fflush(stdin);
                         printf("Insira novo nivel de prioridade da tarefa.\n1 - Baixo\n2 - Medio\n3 - Alto\n");
                         scanf("%d", &novo_prioridade);
                         fflush(stdin);
                         editar_tarefa_prioridade(lista_tarefa, novo_prioridade, codigo);
                     }
-                    else if(operador_edicao == 3) {
+                    if(operador_edicao == 3) {
                         printf("Insira o novo prazo: ");
                         fgets(prazo, 13, stdin);
                         fflush(stdin);
