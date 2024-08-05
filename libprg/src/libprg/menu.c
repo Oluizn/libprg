@@ -1,7 +1,8 @@
 #include "libprg/projeto2.h"
 #include "stdio.h"
+#include "string.h"
 
-void menu_tarefas () {
+void menu_tarefas () { // TODO mover menu para o diretorio do projeto, mover todos os prints para o menu
     int operador = 0;
     tarefa_no *lista_tarefa = NULL;
     while (operador != 9) {
@@ -18,18 +19,19 @@ void menu_tarefas () {
         if(operador != 9){
             switch (operador) {
                 case 1: { // TODO -> verificar o por que da função fgets não funcionar corretamente no linux ubuntu
-                    char descricao[100], prazo[13];
+                    char descricao[100] = "", prazo[13];
                     int prioridade;
-                    fflush(stdin);
+//                    fflush(stdin);
                     printf("Por favor informe a descricao da tarefa:");
                     fgets(descricao, 100, stdin);
+                    descricao[strcspn(descricao, "\n")] = 0;
 //                    fflush(stdin);
                     printf("Por favor informe o prazo da tarefa:");
                     fgets(prazo, 13, stdin);
-                    fflush(stdin);
+//                    fflush(stdin);
                     printf("Por favor informe o nivel de prioridade da tarefa.\n1 - Baixo\n2 - Medio\n3 - Alto\n");
                     scanf("%d", &prioridade);
-                    fflush(stdin);
+//                    fflush(stdin);
                     lista_tarefa = inserir_tarefa(lista_tarefa, descricao, prioridade, prazo);
                     printf("Tarefa inserida com sucesso!!!\n");
                     break;
@@ -74,7 +76,7 @@ void menu_tarefas () {
                         fflush(stdin);
                         editar_tarefa_descricao(lista_tarefa, nova_descricao, codigo);
                         printf("Descricao editada com sucesso!!!\n");
-                        break;;
+                        break;
                     }
                     if(operador_edicao == 2) {
                         fflush(stdin);
