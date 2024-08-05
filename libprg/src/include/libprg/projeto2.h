@@ -6,7 +6,7 @@ typedef struct tarefa {
     char descricao[100];
     int prioridade;
     char prazo[13];
-    int conclusao[13];
+    char conclusao[13];
     char status [20];
 }tarefa;
 
