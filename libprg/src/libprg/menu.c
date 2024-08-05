@@ -81,6 +81,7 @@ void menu_tarefas () {
                         break;
                     }
                     if(operador_edicao == 3) {
+                        fflush(stdin);
                         printf("Insira o novo prazo: ");
                         fgets(prazo, 13, stdin);
                         fflush(stdin);
