@@ -23,7 +23,7 @@ void menu_tarefas () {
                     fflush(stdin);
                     printf("Por favor informe a descricao da tarefa:");
                     fgets(descricao, 100, stdin);
-                    fflush(stdin);
+//                    fflush(stdin);
                     printf("Por favor informe o prazo da tarefa:");
                     fgets(prazo, 13, stdin);
                     fflush(stdin);
