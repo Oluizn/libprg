@@ -17,6 +17,7 @@ tarefa_no *inserir_tarefa(tarefa_no *li, char *descricao, int indice_prioridade,
     strcpy(novo_no->pos.descricao, descricao);
     strcpy(novo_no->pos.prazo, prazo);
     strcpy(novo_no->pos.status, "Nao concluida");
+    strcpy(novo_no->pos.conclusao, "");
     novo_no->pos.prioridade = indice_prioridade;
     if (li == NULL) {
         novo_no->pos.codigo = 1;
