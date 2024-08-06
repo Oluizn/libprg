@@ -120,7 +120,7 @@ void editar_tarefa_prazo (tarefa_no *li, int novo_dia, int novo_mes, int novo_an
 void altera_status_tarefa (tarefa_no *li, int codigo) {
     tarefa_no *aux = busca_codigo(li, codigo);
     if (aux) {
-        if (strcmp(aux->pos.status, "Nao concluida") == 0) {
+        if (strcmp(aux->pos.status, "Nao concluida") == 0 || strcmp(aux->pos.status, "Atrasada") == 0) {
             strcpy(aux->pos.status, "Concluida");
             struct tm *data;
             time_t segundos;
@@ -136,5 +136,15 @@ void altera_status_tarefa (tarefa_no *li, int codigo) {
             aux->pos.conclusao.mes = 0;
             aux->pos.conclusao.ano = 0;
         }
+    }
+}
+void tarefa_atrasada (tarefa_no *li) {
+    tarefa_no *aux = li;
+    while (aux) {
+        if (aux->pos.prazo.dia < aux->pos.conclusao.dia)
+            if (aux->pos.prazo.mes < aux->pos.conclusao.mes)
+                if (aux->pos.prazo.ano < aux->pos.conclusao.ano)
+                    strcpy(aux->pos.status, "Atradasa");
+        aux = aux->prox;
     }
 }

@@ -1,12 +1,12 @@
 #ifndef HEXADECIMAL_H
 #define HEXADECIMAL_H
 
-typedef struct hexa_t {
-    char hexa[20];
-    struct hexa_t *prox;
-}hexa;
+typedef struct num {
+    char hexadecimal[25];
+    struct num *prox;
+}num_hexacimal;
 
-int hexadecimal_para_decimal (char *hexadecimal);
-void incrementador (char* inicial, char* final);
+int hexadecimal_para_decimal (char *num);
+
 
 #endif //HEXADECIMAL_H

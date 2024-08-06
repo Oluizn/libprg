@@ -30,5 +30,6 @@ void editar_tarefa_descricao (tarefa_no *li, char *nova_descricao, int codigo);
 void editar_tarefa_prioridade (tarefa_no *li, int novo_indice_prioridade, int codigo);
 void editar_tarefa_prazo (tarefa_no *li, int novo_dia, int novo_mes, int novo_ano, int codigo);
 void altera_status_tarefa (tarefa_no *li, int codigo);
+void tarefa_atrasada (tarefa_no *li);
 
 #endif //PROJETO2_H
