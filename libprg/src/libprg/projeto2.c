@@ -113,6 +113,7 @@ void altera_status_tarefa (tarefa_no *li, int codigo) {
     if (aux) {
         if (strcmp(aux->pos.status, "Nao concluida") == 0) {
             char str1[13], str2[4], str3[6];
+            strcpy(aux->pos.status, "Concluida");
             struct tm *data;
             time_t segundos;
             time(&segundos);
