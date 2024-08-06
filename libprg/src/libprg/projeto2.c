@@ -46,16 +46,6 @@ tarefa_no *busca_codigo (tarefa_no *li, int codigo) {
     return NULL;
 }
 
-tarefa_no *busca (tarefa_no *li, int codigo) {
-    tarefa_no *aux = li;
-    while (aux) {
-        if (aux->pos.codigo == codigo)
-            return aux;
-        aux = aux->prox;
-    }
-    return NULL;
-}
-
 tarefa_no *busca_descricao (tarefa_no *li, char *descricao) {
     tarefa_no *aux = li;
     while (aux) {
@@ -102,25 +92,25 @@ void remover_tarefa (tarefa_no **li, int num) {
 }
 
 void editar_tarefa_descricao (tarefa_no *li, char *nova_descricao, int codigo) {
-    tarefa_no *aux = busca(li, codigo);
+    tarefa_no *aux = busca_codigo(li, codigo);
     if (aux)
         strcpy(aux->pos.descricao, nova_descricao);
 }
 
 void editar_tarefa_prioridade (tarefa_no *li, int novo_indice_prioridade, int codigo) {
-    tarefa_no *aux = busca(li, codigo);
+    tarefa_no *aux = busca_codigo(li, codigo);
     if (aux)
         aux->pos.prioridade = novo_indice_prioridade;
 }
 
 void editar_tarefa_prazo (tarefa_no *li, char *novo_prazo, int codigo) {
-    tarefa_no *aux = busca(li, codigo);
+    tarefa_no *aux = busca_codigo(li, codigo);
     if (aux)
         strcpy(aux->pos.prazo, novo_prazo);
 }
 
 void concluir_tarefa (tarefa_no *li, int codigo) {
-    tarefa_no *aux = busca(li, codigo);
+    tarefa_no *aux = busca_codigo(li, codigo);
     if (aux) {
         char str1[13], str2[2], str3[2];
         strcpy(aux->pos.status, "concluida");
