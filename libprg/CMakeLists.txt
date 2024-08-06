@@ -34,6 +34,8 @@ add_library(libprg
         src/libprg/merge_sort.c
         src/libprg/quick_sort.c
         src/libprg/menu.c
+        src/libprg/hexadecial.c
+        src/include/libprg/hexadecimal.h
 )
 target_sources(libprg PUBLIC ${SOURCES})
 target_include_directories(libprg PUBLIC ${CMAKE_CURRENT_LIST_DIR}/src/include)
