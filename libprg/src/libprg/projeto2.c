@@ -17,7 +17,6 @@ tarefa_no *inserir_tarefa(tarefa_no *li, char *descricao, int indice_prioridade,
     strcpy(novo_no->pos.descricao, descricao);
     strcpy(novo_no->pos.prazo, prazo);
     strcpy(novo_no->pos.status, "Nao concluida");
-    strcpy(novo_no->pos.conclusao, "");
     novo_no->pos.prioridade = indice_prioridade;
     if (li == NULL) {
         novo_no->pos.codigo = 1;
@@ -114,7 +113,6 @@ void altera_status_tarefa (tarefa_no *li, int codigo) {
     if (aux) {
         if (strcmp(aux->pos.status, "Nao concluida") == 0) {
             char str1[13], str2[4], str3[6];
-            strcpy(aux->pos.status, "Concluida");
             struct tm *data;
             time_t segundos;
             time(&segundos);
