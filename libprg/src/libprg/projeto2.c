@@ -109,28 +109,29 @@ void editar_tarefa_prazo (tarefa_no *li, char *novo_prazo, int codigo) {
         strcpy(aux->pos.prazo, novo_prazo);
 }
 
-void concluir_tarefa (tarefa_no *li, int codigo) {
+void altera_status_tarefa (tarefa_no *li, int codigo) {
     tarefa_no *aux = busca_codigo(li, codigo);
     if (aux) {
-        char str1[13], str2[2], str3[2];
-        strcpy(aux->pos.status, "concluida");
-        struct tm *data;
-        time_t segundos;
-        time(&segundos);
-        data = localtime(&segundos);
-        sprintf(str1, "%d", data->tm_mday);
-        sprintf(str2, "%d", data->tm_mon+1);
-        sprintf(str3, "%d", data->tm_year+1900);
-        strcat(str1, "/");
-        strcat(str2, "/");
-        strcat(str1, str2);
-        strcat(str1, str3);
-        strcpy(aux->pos.conclusao, str1);
+        if (strcmp(aux->pos.status, "Nao concluida") == 0) {
+            char str1[13], str2[2], str3[2];
+            strcpy(aux->pos.status, "concluida");
+            struct tm *data;
+            time_t segundos;
+            time(&segundos);
+            data = localtime(&segundos);
+            sprintf(str1, "%d", data->tm_mday);
+            sprintf(str2, "%d", data->tm_mon+1);
+            sprintf(str3, "%d", data->tm_year+1900);
+            strcat(str1, "/");
+            strcat(str2, "/");
+            strcat(str1, str2);
+            strcat(str1, str3);
+            strcpy(aux->pos.conclusao, str1);
+        }
+        else {
+            tarefa_no *aux = busca_codigo(li, codigo);
+            strcpy(aux->pos.status, "Nao concluida");
+            strcpy(aux->pos.conclusao, "");
+        }
     }
-}
-
-void desconcluir_tarefa (tarefa_no *li, int codigo) {
-    tarefa_no *aux = busca_codigo(li, codigo);
-    strcpy(aux->pos.status, "Nao concluida");
-    strcpy(aux->pos.conclusao, "");
 }

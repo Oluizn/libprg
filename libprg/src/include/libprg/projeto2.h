@@ -26,7 +26,7 @@ void remover_tarefa (tarefa_no **li, int num);
 void editar_tarefa_descricao (tarefa_no *li, char *nova_descricao, int codigo);
 void editar_tarefa_prioridade (tarefa_no *li, int novo_indice_prioridade, int codigo);
 void editar_tarefa_prazo (tarefa_no *li, char *novo_prazo, int codigo);
-void concluir_tarefa (tarefa_no *li, int codigo);
+void altera_status_tarefa (tarefa_no *li, int codigo);
 void desconcluir_tarefa (tarefa_no *li, int codigo);
 
 #endif //PROJETO2_H
