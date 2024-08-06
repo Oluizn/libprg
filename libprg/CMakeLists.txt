@@ -5,14 +5,12 @@ set(HEADERS
         "${CMAKE_CURRENT_LIST_DIR}/src/include/libprg/libprg.h"
         "${CMAKE_CURRENT_LIST_DIR}/src/include/libprg/projeto2.h"
         "${CMAKE_CURRENT_LIST_DIR}/src/include/libprg/aluno.h"
-        "${CMAKE_CURRENT_LIST_DIR}/src/include/libprg/hexadecimal.h"
 )
 # Add source files here manually
 set(SOURCES 
        "${CMAKE_CURRENT_LIST_DIR}/src/libprg/sum.c"
        "${CMAKE_CURRENT_LIST_DIR}/src/libprg/sub.c"
        "${CMAKE_CURRENT_LIST_DIR}/src/libprg/libprg.c"
-        "${CMAKE_CURRENT_LIST_DIR}/src/include/libprg/hexadecimal.h"
 )
 
 add_library(libprg
@@ -35,8 +33,6 @@ add_library(libprg
         src/libprg/imprimir.c
         src/libprg/merge_sort.c
         src/libprg/quick_sort.c
-        src/include/libprg/hexadecimal.h
-        src/libprg/hexadecimal.c
 )
 target_sources(libprg PUBLIC ${SOURCES})
 target_include_directories(libprg PUBLIC ${CMAKE_CURRENT_LIST_DIR}/src/include)
