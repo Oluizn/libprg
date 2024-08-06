@@ -12,12 +12,16 @@ tarefa_no *criar_no(){
     return novo;
 }
 
-tarefa_no *inserir_tarefa(tarefa_no *li, char *descricao, int indice_prioridade, char* prazo){
+tarefa_no *inserir_tarefa(tarefa_no *li, char *descricao, int indice_prioridade, int dia, int mes, int ano){
     tarefa_no *aux = li, * novo_no = criar_no();
     strcpy(novo_no->pos.descricao, descricao);
-    strcpy(novo_no->pos.prazo, prazo);
+    novo_no->pos.prazo.dia = dia;
+    novo_no->pos.prazo.mes = mes;
+    novo_no->pos.prazo.ano = ano;
     strcpy(novo_no->pos.status, "Nao concluida");
-    strcpy(novo_no->pos.conclusao, "");
+    novo_no->pos.conclusao.ano = 0;
+    novo_no->pos.conclusao.mes = 0;
+    novo_no->pos.conclusao.ano = 0;
     novo_no->pos.prioridade = indice_prioridade;
     if (li == NULL) {
         novo_no->pos.codigo = 1;
@@ -56,15 +60,16 @@ tarefa_no *busca_descricao (tarefa_no *li, char *descricao) {
     return NULL;
 }
 
-tarefa_no *busca_prazo (tarefa_no *li, char *prazo) {
-    tarefa_no *aux = li;
-    while (aux) {
-        if (strcmp(prazo, aux->pos.prazo) == 0)
-            return aux;
-        aux = aux->prox;
-    }
-    return NULL;
-}
+// TODO reformular essa busca para comparar com inteiro
+// tarefa_no *busca_prazo (tarefa_no *li, int prazo) {
+//     tarefa_no *aux = li;
+//     while (aux) {
+//         if (strcmp(prazo, aux->pos.prazo) == 0)
+//             return aux;
+//         aux = aux->prox;
+//     }
+//     return NULL;
+// }
 
 void remover_tarefa (tarefa_no **li, int num) {
     tarefa_no *remover = NULL;
@@ -103,34 +108,33 @@ void editar_tarefa_prioridade (tarefa_no *li, int novo_indice_prioridade, int co
         aux->pos.prioridade = novo_indice_prioridade;
 }
 
-void editar_tarefa_prazo (tarefa_no *li, char *novo_prazo, int codigo) {
+void editar_tarefa_prazo (tarefa_no *li, int novo_dia, int novo_mes, int novo_ano, int codigo) {
     tarefa_no *aux = busca_codigo(li, codigo);
-    if (aux)
-        strcpy(aux->pos.prazo, novo_prazo);
+    if (aux) {
+        aux->pos.prazo.dia = novo_dia;
+        aux->pos.prazo.mes = novo_mes;
+        aux->pos.prazo.ano = novo_ano;
+    }
 }
 
 void altera_status_tarefa (tarefa_no *li, int codigo) {
     tarefa_no *aux = busca_codigo(li, codigo);
     if (aux) {
         if (strcmp(aux->pos.status, "Nao concluida") == 0) {
-            char str1[13], str2[4], str3[6];
             strcpy(aux->pos.status, "Concluida");
             struct tm *data;
             time_t segundos;
             time(&segundos);
             data = localtime(&segundos);
-            sprintf(str1, "%d", data->tm_mday);
-            sprintf(str2, "%d", data->tm_mon+1);
-            sprintf(str3, "%d", data->tm_year+1900);
-            strcat(str1, "/");
-            strcat(str2, "/");
-            strcat(str1, str2);
-            strcat(str1, str3);
-            strcpy(aux->pos.conclusao, str1);
+            aux->pos.conclusao.dia = data->tm_mday;
+            aux->pos.conclusao.mes = data->tm_mon+1;
+            aux->pos.conclusao.ano = data->tm_year+1900;
         }
         else {
             strcpy(aux->pos.status, "Nao concluida");
-            strcpy(aux->pos.conclusao, "");
+            aux->pos.conclusao.dia = 0;
+            aux->pos.conclusao.mes = 0;
+            aux->pos.conclusao.ano = 0;
         }
     }
 }
