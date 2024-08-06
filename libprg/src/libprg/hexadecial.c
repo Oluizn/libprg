@@ -1,7 +1,7 @@
 #include "stdlib.h"
 #include "stdio.h"
 #include "libprg/hexadecimal.h"
-
+// teste
 int hexadecimal_para_decimal (char *hexadecimal) {
     long int decimal = strtol(hexadecimal, NULL, 16);
     return decimal;
