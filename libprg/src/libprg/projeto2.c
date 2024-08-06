@@ -125,7 +125,7 @@ void altera_status_tarefa (tarefa_no *li, int codigo) {
             strcat(str2, "/");
             strcat(str1, str2);
             strcat(str1, str3);
-            strcpy(aux->pos.conclusao, "6/8/2024"); // TODO verificar o motivo dessa linha estar colocando um /00 no inicio da minha string aux->pos.status
+            strcpy(aux->pos.conclusao, str1); // TODO verificar o motivo dessa linha estar colocando um /00 no inicio da minha string aux->pos.status
         }
         else {
             strcpy(aux->pos.status, "Nao concluida");
