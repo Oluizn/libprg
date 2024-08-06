@@ -5,9 +5,9 @@ typedef struct tarefa {
     int codigo;
     char descricao[100];
     int prioridade;
-    char prazo[13];
-    char conclusao[8];
-    char status [20];
+    char prazo[14];
+    char conclusao[14];
+    char status[25];
 }tarefa;
 
 typedef struct tarefa_t {
