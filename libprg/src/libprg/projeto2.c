@@ -126,7 +126,8 @@ void altera_status_tarefa (tarefa_no *li, int codigo) {
             strcat(str2, "/");
             strcat(str1, str2);
             strcat(str1, str3);
-            // strcpy(aux->pos.conclusao, str1);
+            strcpy(aux->pos.conclusao, str1);
+            fflush(stdin);
         }
         else {
             strcpy(aux->pos.status, "Nao concluida");
