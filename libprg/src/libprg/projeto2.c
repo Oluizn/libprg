@@ -113,7 +113,7 @@ void altera_status_tarefa (tarefa_no *li, int codigo) {
     tarefa_no *aux = busca_codigo(li, codigo);
     if (aux) {
         if (strcmp(aux->pos.status, "Nao concluida") == 0) {
-            char str1[13], str2[2], str3[2];
+            char str1[13], str2[4], str3[6];
             strcpy(aux->pos.status, "concluida");
             struct tm *data;
             time_t segundos;
@@ -129,7 +129,6 @@ void altera_status_tarefa (tarefa_no *li, int codigo) {
             strcpy(aux->pos.conclusao, str1);
         }
         else {
-            tarefa_no *aux = busca_codigo(li, codigo);
             strcpy(aux->pos.status, "Nao concluida");
             strcpy(aux->pos.conclusao, "");
         }
