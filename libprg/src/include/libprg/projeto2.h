@@ -6,7 +6,7 @@ typedef struct tarefa {
     char descricao[100];
     int prioridade;
     char prazo[13];
-    char conclusao[13];
+    char conclusao[8];
     char status [20];
 }tarefa;
 
@@ -18,7 +18,6 @@ typedef struct tarefa_t {
 
 tarefa_no *criar_no();
 tarefa_no *inserir_tarefa(tarefa_no* li, char* descricao, int indice_prioridade, char* prazo);
-void imprimir_lista_tarefa(tarefa_no *li);
 tarefa_no *busca_codigo (tarefa_no *li, int codigo);
 tarefa_no *busca_prazo (tarefa_no *li, char *prazo);
 tarefa_no *busca_descricao (tarefa_no *li, char *descricao);
