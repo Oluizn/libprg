@@ -8,8 +8,10 @@ void salvar_lista(tarefa_no *li) {
     FILE *file = fopen(FILE_NAME, "wb");
     if (file) {
         tarefa_no *aux = li;
-        while (aux)
+        while (aux) {
             fwrite(&aux->pos, sizeof(tarefa), 1, file);
+            aux = aux->prox;
+        }
     }
     fclose(file);
 }
