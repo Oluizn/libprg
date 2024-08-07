@@ -5,7 +5,7 @@
 #include "time.h"
 
 void salvar_lista(tarefa_no *li) {
-    FILE *file = fopen(FILE_NAME, "wr");
+    FILE *file = fopen(FILE_NAME, "w");
     if (file) {
         tarefa_no *aux = li;
         while (aux) {
