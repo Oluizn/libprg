@@ -1,6 +1,6 @@
 #ifndef PROJETO2_H
 #define PROJETO2_H
-#define FILE_NAME "Tarefas.bin"
+#define FILE_NAME "Tarefas.txt"
 
 typedef struct data {
     int dia, mes, ano;
