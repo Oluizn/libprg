@@ -4,6 +4,16 @@
 #include <stdlib.h>
 #include "time.h"
 
+void salvar_lista(tarefa_no *li) {
+    FILE *file = fopen(FILE_NAME, "wb");
+    if (file) {
+        tarefa_no *aux = li;
+        while (aux)
+            fwrite(&aux->pos, sizeof(tarefa), 1, file);
+    }
+    fclose(file);
+}
+
 tarefa_no *criar_no(){
     tarefa_no *novo = (tarefa_no *) malloc(sizeof (tarefa_no));
     if (novo == NULL) {
@@ -140,10 +150,14 @@ void altera_status_tarefa (tarefa_no *li, int codigo) {
 }
 void tarefa_atrasada (tarefa_no *li) {
     tarefa_no *aux = li;
+    struct tm *data;
+    time_t segundos;
+    time(&segundos);
+    data = localtime(&segundos);
     while (aux) {
-        if (aux->pos.prazo.dia < aux->pos.conclusao.dia)
-            if (aux->pos.prazo.mes < aux->pos.conclusao.mes)
-                if (aux->pos.prazo.ano < aux->pos.conclusao.ano)
+        if (aux->pos.prazo.dia < data->tm_mday)
+            if (aux->pos.prazo.mes <= data->tm_mon+1)
+                if (aux->pos.prazo.ano <= data->tm_year+1900)
                     strcpy(aux->pos.status, "Atradasa");
         aux = aux->prox;
     }
