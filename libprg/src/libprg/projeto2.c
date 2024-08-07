@@ -16,6 +16,14 @@ void salvar_lista(tarefa_no *li) {
     fclose(file);
 }
 
+tarefa_no *carregar_lista (tarefa_no *li) {
+    li = NULL;
+    FILE *file = fopen("FILE_NAME", "rb");
+    tarefa_no *aux = li;
+    while (fread(&aux->pos, sizeof(tarefa), 1, file)) {
+        inserir_tarefa(aux, aux->pos.descricao, aux->pos.prioridade, aux->pos.prazo.dia, aux->pos.prazo.mes, aux->pos.prazo.ano);
+    }
+}
 tarefa_no *criar_no(){
     tarefa_no *novo = (tarefa_no *) malloc(sizeof (tarefa_no));
     if (novo == NULL) {
