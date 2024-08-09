@@ -24,8 +24,9 @@ int salvar_lista(tarefa_no *li) {
         fclose(file);
         return 0;
     }
-    else
-        return 1;
+    else {
+        exit(0);
+    }
 }
 
 int carregar_lista (tarefa_no *li) {
