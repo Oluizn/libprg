@@ -199,3 +199,17 @@ void tarefa_atrasada (tarefa_no *li) {
         aux = aux->prox;
     }
 }
+
+void ler_string(char *nome, int tamanho) {
+    char letra, i = 0;
+    do
+    {
+        letra = getchar ();
+        if(letra != '\n' && i < tamanho - 1)
+        {
+            nome[i] = letra;
+            i++;
+        }
+    }while(letra != '\n');
+    nome[i] = '\0';
+}
