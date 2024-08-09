@@ -9,18 +9,19 @@ size_t salvar_lista(tarefa_no *li) {
     int cont_elementos = 0;
     if (file) {
         tarefa_no *aux = li;
+        tarefa escrevendo_nos;
         while (aux) {
-            // cont_elementos += fwrite(&aux->pos.codigo, sizeof(int), 1, file);
-            // cont_elementos += fwrite(aux->pos.descricao, sizeof(char), strlen(aux->pos.descricao), file);
-            // cont_elementos +=fwrite(&aux->pos.prioridade, sizeof(int), 1, file);
-            // cont_elementos +=fwrite(&aux->pos.prazo.dia, sizeof(int), 1, file);
-            // cont_elementos +=fwrite(&aux->pos.prazo.mes, sizeof(int), 1, file);
-            // cont_elementos +=fwrite(&aux->pos.prazo.ano, sizeof(int), 1, file);
-            // cont_elementos +=fwrite(&aux->pos.conclusao.dia, sizeof(int), 1, file);
-            // cont_elementos +=fwrite(&aux->pos.conclusao.mes, sizeof(int), 1, file);
-            // cont_elementos +=fwrite(&aux->pos.conclusao.ano, sizeof(int), 1, file);
-            // cont_elementos +=fwrite(aux->pos.status, sizeof(char), strlen(aux->pos.status), file);
-            fwrite(&aux->pos, sizeof(tarefa), 1 , file);
+            // escrevendo_nos.codigo = aux->pos.codigo;
+            // strcpy(escrevendo_nos.descricao, aux->pos.descricao);
+            // escrevendo_nos.prazo.dia = aux->pos.prazo.dia;
+            // escrevendo_nos.prazo.mes = aux->pos.prazo.mes;
+            // escrevendo_nos.prazo.ano = aux->pos.prazo.ano;
+            // escrevendo_nos.conclusao.dia = aux->pos.conclusao.dia;
+            // escrevendo_nos.conclusao.mes = aux->pos.conclusao.mes;
+            // escrevendo_nos.conclusao.ano = aux->pos.conclusao.ano;
+            // strcpy(escrevendo_nos.status, aux->pos.status);
+            // escrevendo_nos.prioridade = aux->pos.prioridade;
+            fwrite(&escrevendo_nos, sizeof(tarefa), 1 , file);
             aux = aux->prox;
         }
         if (ferror(file))
@@ -37,17 +38,6 @@ tarefa_no *carregar_lista (tarefa_no *li) {
     tarefa carregando_tarefas;
     FILE *file = fopen("FILE_NAME", "rb");
     while (!feof(file)) { // TODO verificar o motivo de o arquivo estar abrindo como NULL
-        // li = inserir_tarefa(li, "", 0, 0, 0, 0);
-        // fread(&li->pos.codigo, sizeof(int), 1, file);
-        // fread(li->pos.descricao, sizeof(char), strlen(li->pos.descricao), file);
-        // fread(&li->pos.prioridade, sizeof(int), 1, file);
-        // fread(&li->pos.prazo.dia, sizeof(int), 1, file);
-        // fread(&li->pos.prazo.mes, sizeof(int), 1, file);
-        // fread(&li->pos.prazo.ano, sizeof(int), 1, file);
-        // fread(&li->pos.conclusao.dia, sizeof(int), 1, file);
-        // fread(&li->pos.conclusao.mes, sizeof(int), 1, file);
-        // fread(&li->pos.conclusao.ano, sizeof(int), 1, file);
-        // fread(li->pos.status, sizeof(char), strlen(li->pos.status), file);
         fread(&carregando_tarefas, sizeof(tarefa), 1, file);
         li = inserir_tarefa(li, carregando_tarefas.descricao, carregando_tarefas.prioridade, carregando_tarefas.prazo.dia, carregando_tarefas.prazo.mes, carregando_tarefas.prazo.ano, carregando_tarefas.conclusao.ano, carregando_tarefas.conclusao.mes, carregando_tarefas.conclusao.ano, carregando_tarefas.status);
     }
