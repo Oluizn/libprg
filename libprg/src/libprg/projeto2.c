@@ -26,8 +26,6 @@ int salvar_lista(tarefa_no *li) {
     }
     else
         return 1;
-
-
 }
 
 int carregar_lista (tarefa_no *li) {
