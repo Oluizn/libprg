@@ -4,26 +4,55 @@
 #include <stdlib.h>
 #include "time.h"
 
-void salvar_lista(tarefa_no *li) {
+int salvar_lista(tarefa_no *li) {
     FILE *file = fopen(FILE_NAME, "wb");
     if (file) {
         tarefa_no *aux = li;
         while (aux) {
-            fwrite(&aux->pos, sizeof(tarefa), 1, file);
+            fwrite(&aux->pos.codigo, sizeof(int), 1, file);
+            fwrite(aux->pos.descricao, sizeof(char), strlen(aux->pos.descricao), file);
+            fwrite(&aux->pos.prioridade, sizeof(int), 1, file);
+            fwrite(&aux->pos.prazo.dia, sizeof(int), 1, file);
+            fwrite(&aux->pos.prazo.mes, sizeof(int), 1, file);
+            fwrite(&aux->pos.prazo.ano, sizeof(int), 1, file);
+            fwrite(&aux->pos.conclusao.dia, sizeof(int), 1, file);
+            fwrite(&aux->pos.conclusao.mes, sizeof(int), 1, file);
+            fwrite(&aux->pos.conclusao.ano, sizeof(int), 1, file);
+            fwrite(aux->pos.status, sizeof(char), strlen(aux->pos.status), file);
             aux = aux->prox;
         }
+        fclose(file);
+        return 0;
     }
-    fclose(file);
+    else
+        return 1;
+
+
 }
 
-tarefa_no *carregar_lista (tarefa_no *li) {
-    li = NULL;
+int carregar_lista (tarefa_no *li) {
     FILE *file = fopen("FILE_NAME", "rb");
-    tarefa_no *aux = li;
-    while (fread(&aux->pos, sizeof(tarefa), 1, file)) {
-        inserir_tarefa(aux, aux->pos.descricao, aux->pos.prioridade, aux->pos.prazo.dia, aux->pos.prazo.mes, aux->pos.prazo.ano);
+    if (file) {
+        while (!feof(file)) {
+            li = inserir_tarefa(li, "", 0, 0, 0, 0);
+            fread(&li->pos.codigo, sizeof(int), 1, file);
+            fread(li->pos.descricao, sizeof(char), strlen(li->pos.descricao), file);
+            fread(&li->pos.prioridade, sizeof(int), 1, file);
+            fread(&li->pos.prazo.dia, sizeof(int), 1, file);
+            fread(&li->pos.prazo.mes, sizeof(int), 1, file);
+            fread(&li->pos.prazo.ano, sizeof(int), 1, file);
+            fread(&li->pos.conclusao.dia, sizeof(int), 1, file);
+            fread(&li->pos.conclusao.mes, sizeof(int), 1, file);
+            fread(&li->pos.conclusao.ano, sizeof(int), 1, file);
+            fread(li->pos.status, sizeof(char), strlen(li->pos.status), file);
+        }
+        fclose(file);
+        return 0;
     }
+    else
+        return 1;
 }
+
 tarefa_no *criar_no(){
     tarefa_no *novo = (tarefa_no *) malloc(sizeof (tarefa_no));
     if (novo == NULL) {
