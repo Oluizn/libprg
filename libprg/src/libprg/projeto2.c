@@ -29,7 +29,7 @@ int salvar_lista(tarefa_no *li) {
     }
 }
 
-int carregar_lista (tarefa_no *li) {
+tarefa_no *carregar_lista (tarefa_no *li) {
     FILE *file = fopen("FILE_NAME", "rb");
     while (!feof(file)) {
         li = inserir_tarefa(li, "", 0, 0, 0, 0);
@@ -45,7 +45,7 @@ int carregar_lista (tarefa_no *li) {
         fread(li->pos.status, sizeof(char), strlen(li->pos.status), file);
     }
     fclose(file);
-    return 0;
+    return li;
 }
 
 tarefa_no *criar_no(){
