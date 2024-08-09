@@ -6,7 +6,7 @@
 
 size_t salvar_lista(tarefa_no *li) {
     FILE *file = fopen(FILE_NAME, "wb");
-    nt cont_elementos;
+    int cont_elementos = 0;
     if (file) {
         tarefa_no *aux = li;
         while (aux) {
