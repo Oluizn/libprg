@@ -6,7 +6,6 @@
 
 int salvar_lista(tarefa_no *li) {
     FILE *file = fopen(FILE_NAME, "wb");
-    int cont_elementos = 0;
     if (file) {
         tarefa_no *aux = li;
         while (aux) {
@@ -16,7 +15,7 @@ int salvar_lista(tarefa_no *li) {
         if (ferror(file))
             return -1;
         fclose(file);
-        return cont_elementos;
+        return 0;
     }
     else {
         exit(0);
