@@ -34,7 +34,7 @@ size_t salvar_lista(tarefa_no *li) {
     }
 }
 
-void *carregar_lista (tarefa_no *li) {
+void carregar_lista (tarefa_no *li) {
     tarefa carregando_tarefas;
     FILE *file = fopen(FILE_NAME, "rb");
     while (!feof(file)) {
