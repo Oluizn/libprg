@@ -25,7 +25,7 @@ typedef struct tarefa_t {
 size_t salvar_lista(tarefa_no *li);
 tarefa_no *carregar_lista (tarefa_no *li);
 tarefa_no *criar_no();
-tarefa_no *inserir_tarefa(tarefa_no *li, char *descricao, int indice_prioridade, int dia, int mes, int ano);
+tarefa_no *inserir_tarefa(tarefa_no *li, char *descricao, int indice_prioridade, int dia_p, int mes_p, int ano_p, int dia_c, int mes_c, int ano_c, char *status);
 tarefa_no *busca_codigo (tarefa_no *li, int codigo);
 // tarefa_no *busca_prazo (tarefa_no *li, int prazo);
 tarefa_no *busca_descricao (tarefa_no *li, char *descricao);

@@ -31,19 +31,22 @@ size_t salvar_lista(tarefa_no *li) {
 }
 
 tarefa_no *carregar_lista (tarefa_no *li) {
+    tarefa carregando_tarefas;
     FILE *file = fopen("FILE_NAME", "rb");
     while (!feof(file)) {
-        li = inserir_tarefa(li, "", 0, 0, 0, 0);
-        fread(&li->pos.codigo, sizeof(int), 1, file);
-        fread(li->pos.descricao, sizeof(char), strlen(li->pos.descricao), file);
-        fread(&li->pos.prioridade, sizeof(int), 1, file);
-        fread(&li->pos.prazo.dia, sizeof(int), 1, file);
-        fread(&li->pos.prazo.mes, sizeof(int), 1, file);
-        fread(&li->pos.prazo.ano, sizeof(int), 1, file);
-        fread(&li->pos.conclusao.dia, sizeof(int), 1, file);
-        fread(&li->pos.conclusao.mes, sizeof(int), 1, file);
-        fread(&li->pos.conclusao.ano, sizeof(int), 1, file);
-        fread(li->pos.status, sizeof(char), strlen(li->pos.status), file);
+        // li = inserir_tarefa(li, "", 0, 0, 0, 0);
+        // fread(&li->pos.codigo, sizeof(int), 1, file);
+        // fread(li->pos.descricao, sizeof(char), strlen(li->pos.descricao), file);
+        // fread(&li->pos.prioridade, sizeof(int), 1, file);
+        // fread(&li->pos.prazo.dia, sizeof(int), 1, file);
+        // fread(&li->pos.prazo.mes, sizeof(int), 1, file);
+        // fread(&li->pos.prazo.ano, sizeof(int), 1, file);
+        // fread(&li->pos.conclusao.dia, sizeof(int), 1, file);
+        // fread(&li->pos.conclusao.mes, sizeof(int), 1, file);
+        // fread(&li->pos.conclusao.ano, sizeof(int), 1, file);
+        // fread(li->pos.status, sizeof(char), strlen(li->pos.status), file);
+        fread(&carregando_tarefas, sizeof(tarefa), 1, file);
+        li = inserir_tarefa(li, carregando_tarefas.descricao, carregando_tarefas.prioridade, carregando_tarefas.prazo.dia, carregando_tarefas.prazo.mes, carregando_tarefas.prazo.ano, carregando_tarefas.conclusao.ano, carregando_tarefas.conclusao.mes, carregando_tarefas.conclusao.ano, carregando_tarefas.status);
     }
     fclose(file);
     return li;
@@ -57,16 +60,16 @@ tarefa_no *criar_no(){
     return novo;
 }
 
-tarefa_no *inserir_tarefa(tarefa_no *li, char *descricao, int indice_prioridade, int dia, int mes, int ano){
+tarefa_no *inserir_tarefa(tarefa_no *li, char *descricao, int indice_prioridade, int dia_p, int mes_p, int ano_p, int dia_c, int mes_c, int ano_c, char *status){
     tarefa_no *aux = li, * novo_no = criar_no();
     strcpy(novo_no->pos.descricao, descricao);
-    novo_no->pos.prazo.dia = dia;
-    novo_no->pos.prazo.mes = mes;
-    novo_no->pos.prazo.ano = ano;
-    strcpy(novo_no->pos.status, "Nao concluida");
-    novo_no->pos.conclusao.ano = 0;
-    novo_no->pos.conclusao.mes = 0;
-    novo_no->pos.conclusao.ano = 0;
+    novo_no->pos.prazo.dia = dia_p;
+    novo_no->pos.prazo.mes = mes_p;
+    novo_no->pos.prazo.ano = ano_p;
+    strcpy(novo_no->pos.status, status);
+    novo_no->pos.conclusao.ano = dia_c;
+    novo_no->pos.conclusao.mes = mes_c;
+    novo_no->pos.conclusao.ano = ano_c;
     novo_no->pos.prioridade = indice_prioridade;
     if (li == NULL) {
         novo_no->pos.codigo = 1;
