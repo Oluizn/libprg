@@ -23,6 +23,8 @@ size_t salvar_lista(tarefa_no *li) {
             fwrite(&aux->pos, sizeof(tarefa), 1 , file);
             aux = aux->prox;
         }
+        if (ferror(file))
+            return -1;
         fclose(file);
         return cont_elementos;
     }
