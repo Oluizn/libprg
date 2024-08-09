@@ -33,7 +33,7 @@ size_t salvar_lista(tarefa_no *li) {
 tarefa_no *carregar_lista (tarefa_no *li) {
     tarefa carregando_tarefas;
     FILE *file = fopen("FILE_NAME", "rb");
-    while (!feof(file)) {
+    while (!feof(file)) { // TODO verificar o motivo de o arquivo estar abrindo como NULL
         // li = inserir_tarefa(li, "", 0, 0, 0, 0);
         // fread(&li->pos.codigo, sizeof(int), 1, file);
         // fread(li->pos.descricao, sizeof(char), strlen(li->pos.descricao), file);
