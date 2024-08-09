@@ -1,6 +1,7 @@
 #ifndef PROJETO2_H
 #define PROJETO2_H
 #define FILE_NAME "Tarefas.bin"
+#include "stdio.h"
 
 typedef struct data {
     int dia, mes, ano;
@@ -21,7 +22,7 @@ typedef struct tarefa_t {
     struct tarefa_t *anterior;
 }tarefa_no;
 
-int salvar_lista(tarefa_no *li);
+size_t salvar_lista(tarefa_no *li);
 tarefa_no *carregar_lista (tarefa_no *li);
 tarefa_no *criar_no();
 tarefa_no *inserir_tarefa(tarefa_no *li, char *descricao, int indice_prioridade, int dia, int mes, int ano);

@@ -4,25 +4,26 @@
 #include <stdlib.h>
 #include "time.h"
 
-int salvar_lista(tarefa_no *li) {
+size_t salvar_lista(tarefa_no *li) {
     FILE *file = fopen(FILE_NAME, "wb");
+    nt cont_elementos;
     if (file) {
         tarefa_no *aux = li;
         while (aux) {
-            fwrite(&aux->pos.codigo, sizeof(int), 1, file);
-            fwrite(aux->pos.descricao, sizeof(char), strlen(aux->pos.descricao), file);
-            fwrite(&aux->pos.prioridade, sizeof(int), 1, file);
-            fwrite(&aux->pos.prazo.dia, sizeof(int), 1, file);
-            fwrite(&aux->pos.prazo.mes, sizeof(int), 1, file);
-            fwrite(&aux->pos.prazo.ano, sizeof(int), 1, file);
-            fwrite(&aux->pos.conclusao.dia, sizeof(int), 1, file);
-            fwrite(&aux->pos.conclusao.mes, sizeof(int), 1, file);
-            fwrite(&aux->pos.conclusao.ano, sizeof(int), 1, file);
-            fwrite(aux->pos.status, sizeof(char), strlen(aux->pos.status), file);
+            cont_elementos = fwrite(&aux->pos.codigo, sizeof(int), 1, file);
+            cont_elementos += fwrite(aux->pos.descricao, sizeof(char), strlen(aux->pos.descricao), file);
+            cont_elementos +=fwrite(&aux->pos.prioridade, sizeof(int), 1, file);
+            cont_elementos +=fwrite(&aux->pos.prazo.dia, sizeof(int), 1, file);
+            cont_elementos +=fwrite(&aux->pos.prazo.mes, sizeof(int), 1, file);
+            cont_elementos +=fwrite(&aux->pos.prazo.ano, sizeof(int), 1, file);
+            cont_elementos +=fwrite(&aux->pos.conclusao.dia, sizeof(int), 1, file);
+            cont_elementos +=fwrite(&aux->pos.conclusao.mes, sizeof(int), 1, file);
+            cont_elementos +=fwrite(&aux->pos.conclusao.ano, sizeof(int), 1, file);
+            cont_elementos +=fwrite(aux->pos.status, sizeof(char), strlen(aux->pos.status), file);
             aux = aux->prox;
         }
         fclose(file);
-        return 0;
+        return cont_elementos;
     }
     else {
         exit(0);
