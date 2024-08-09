@@ -10,7 +10,7 @@ size_t salvar_lista(tarefa_no *li) {
     if (file) {
         tarefa_no *aux = li;
         while (aux) {
-            cont_elementos = fwrite(&aux->pos.codigo, sizeof(int), 1, file);
+            cont_elementos += fwrite(&aux->pos.codigo, sizeof(int), 1, file);
             cont_elementos += fwrite(aux->pos.descricao, sizeof(char), strlen(aux->pos.descricao), file);
             cont_elementos +=fwrite(&aux->pos.prioridade, sizeof(int), 1, file);
             cont_elementos +=fwrite(&aux->pos.prazo.dia, sizeof(int), 1, file);
