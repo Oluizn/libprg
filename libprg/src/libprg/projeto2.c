@@ -31,25 +31,21 @@ int salvar_lista(tarefa_no *li) {
 
 int carregar_lista (tarefa_no *li) {
     FILE *file = fopen("FILE_NAME", "rb");
-    if (file) {
-        while (!feof(file)) {
-            li = inserir_tarefa(li, "", 0, 0, 0, 0);
-            fread(&li->pos.codigo, sizeof(int), 1, file);
-            fread(li->pos.descricao, sizeof(char), strlen(li->pos.descricao), file);
-            fread(&li->pos.prioridade, sizeof(int), 1, file);
-            fread(&li->pos.prazo.dia, sizeof(int), 1, file);
-            fread(&li->pos.prazo.mes, sizeof(int), 1, file);
-            fread(&li->pos.prazo.ano, sizeof(int), 1, file);
-            fread(&li->pos.conclusao.dia, sizeof(int), 1, file);
-            fread(&li->pos.conclusao.mes, sizeof(int), 1, file);
-            fread(&li->pos.conclusao.ano, sizeof(int), 1, file);
-            fread(li->pos.status, sizeof(char), strlen(li->pos.status), file);
-        }
-        fclose(file);
-        return 0;
+    while (!feof(file)) {
+        li = inserir_tarefa(li, "", 0, 0, 0, 0);
+        fread(&li->pos.codigo, sizeof(int), 1, file);
+        fread(li->pos.descricao, sizeof(char), strlen(li->pos.descricao), file);
+        fread(&li->pos.prioridade, sizeof(int), 1, file);
+        fread(&li->pos.prazo.dia, sizeof(int), 1, file);
+        fread(&li->pos.prazo.mes, sizeof(int), 1, file);
+        fread(&li->pos.prazo.ano, sizeof(int), 1, file);
+        fread(&li->pos.conclusao.dia, sizeof(int), 1, file);
+        fread(&li->pos.conclusao.mes, sizeof(int), 1, file);
+        fread(&li->pos.conclusao.ano, sizeof(int), 1, file);
+        fread(li->pos.status, sizeof(char), strlen(li->pos.status), file);
     }
-    else
-        return 1;
+    fclose(file);
+    return 0;
 }
 
 tarefa_no *criar_no(){
