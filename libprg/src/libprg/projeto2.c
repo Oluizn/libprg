@@ -84,6 +84,16 @@ tarefa_no *busca_codigo (tarefa_no *li, int codigo) {
     return NULL;
 }
 
+tarefa_no *busca_prioridade (tarefa_no *li, int prioridade) {
+    tarefa_no *aux = li;
+    while (aux) {
+        if (aux->pos.prioridade == prioridade)
+            return aux;
+        aux = aux->prox;
+    }
+    return NULL;
+}
+
 tarefa_no *busca_descricao (tarefa_no *li, char *descricao) {
     tarefa_no *aux = li;
     while (aux) {
@@ -94,16 +104,65 @@ tarefa_no *busca_descricao (tarefa_no *li, char *descricao) {
     return NULL;
 }
 
-// TODO reformular essa busca para comparar com inteiro
-// tarefa_no *busca_prazo (tarefa_no *li, int prazo) {
-//     tarefa_no *aux = li;
-//     while (aux) {
-//         if (strcmp(prazo, aux->pos.prazo) == 0)
-//             return aux;
-//         aux = aux->prox;
-//     }
-//     return NULL;
-// }
+tarefa_no *busca_prazo_dia (tarefa_no *li, int prazo) {
+    tarefa_no *aux = li;
+    while (aux) {
+        if (aux->pos.prazo.dia == prazo)
+            return aux;
+        aux = aux->prox;
+    }
+    return NULL;
+}
+
+tarefa_no *busca_prazo_mes (tarefa_no *li, int prazo) {
+    tarefa_no *aux = li;
+    while (aux) {
+        if (aux->pos.prazo.mes == prazo)
+            return aux;
+        aux = aux->prox;
+    }
+    return NULL;
+}
+
+tarefa_no *busca_prazo_ano (tarefa_no *li, int prazo) {
+    tarefa_no *aux = li;
+    while (aux) {
+        if (aux->pos.prazo.ano == prazo)
+            return aux;
+        aux = aux->prox;
+    }
+    return NULL;
+}
+
+tarefa_no *busca_conclusao_dia (tarefa_no *li, int prazo) {
+    tarefa_no *aux = li;
+    while (aux) {
+        if (aux->pos.conclusao.dia == prazo)
+            return aux;
+        aux = aux->prox;
+    }
+    return NULL;
+}
+
+tarefa_no *busca_conclusao_mes (tarefa_no *li, int prazo) {
+    tarefa_no *aux = li;
+    while (aux) {
+        if (aux->pos.conclusao.mes == prazo)
+            return aux;
+        aux = aux->prox;
+    }
+    return NULL;
+}
+
+tarefa_no *busca_conclusao_ano (tarefa_no *li, int prazo) {
+    tarefa_no *aux = li;
+    while (aux) {
+        if (aux->pos.conclusao.ano == prazo)
+            return aux;
+        aux = aux->prox;
+    }
+    return NULL;
+}
 
 void remover_tarefa (tarefa_no **li, int num) {
     tarefa_no *remover = NULL;
