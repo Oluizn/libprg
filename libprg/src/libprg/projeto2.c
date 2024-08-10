@@ -9,10 +9,8 @@ int salvar_lista(tarefa_no *li) {
     FILE *file = fopen(FILE_NAME, "wb");
     if (file) {
         tarefa_no *aux = li;
-        tarefa escrevendo_nos;
         while (aux) {
-            escrevendo_nos = aux->pos;
-            fwrite(&escrevendo_nos, sizeof(tarefa), 1 , file);
+            fwrite(&aux->pos, sizeof(tarefa), 1 , file);
             aux = aux->prox;
         }
         if (ferror(file))
