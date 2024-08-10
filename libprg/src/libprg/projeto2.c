@@ -255,16 +255,18 @@ void tarefa_atrasada (tarefa_no *li) {
     }
 }
 
-void ler_string(char *nome, int tamanho) {
-    char letra, i = 0;
-    do
-    {
-        letra = getchar ();
-        if(letra != '\n' && i < tamanho - 1)
-        {
-            nome[i] = letra;
-            i++;
-        }
-    }while(letra != '\n');
-    nome[i] = '\0';
-}
+
+//  função para trocar o \n no final da string para \0, para corrigir o problema do fgets no linux, porém não está funcionando direito
+// void ler_string(char *nome, int tamanho) {
+//     char letra, i = 0;
+//     do
+//     {
+//         letra = getchar ();
+//         if(letra != '\n' && i < tamanho - 1)
+//         {
+//             nome[i] = letra;
+//             i++;
+//         }
+//     }while(letra != '\n');
+//     nome[i] = '\0';
+// }
