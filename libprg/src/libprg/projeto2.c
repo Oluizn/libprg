@@ -33,6 +33,10 @@ tarefa_no *carregar_lista (tarefa_no *li) {
             li = inserir_tarefa(li, carregando_tarefas.descricao, carregando_tarefas.prioridade, carregando_tarefas.prazo.dia, carregando_tarefas.prazo.mes, carregando_tarefas.prazo.ano, carregando_tarefas.conclusao.ano, carregando_tarefas.conclusao.mes, carregando_tarefas.conclusao.ano, carregando_tarefas.status);
         }
         fclose(file);
+        tarefa_no *aux = li;
+        while (aux->prox)
+            aux = aux->prox;
+        remover_tarefa(&li, aux->pos.codigo);
         return li;
     }
     return li;
