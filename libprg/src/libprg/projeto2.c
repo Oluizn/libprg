@@ -101,7 +101,7 @@ tarefa_no *busca_prioridade (tarefa_no *li, int prioridade) {
 
 tarefa_no *busca_descricao (tarefa_no *li, char *descricao) {
     tarefa_no *aux = li;
-    for (int i = 0; i < strlen(descricao), i++) {
+    for (int i = 0; i < strlen(descricao); i++) {
         toupper(descricao[i]);
         toupper(aux->pos.descricao[i]);
     }
