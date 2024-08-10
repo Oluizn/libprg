@@ -24,7 +24,7 @@ int salvar_lista(tarefa_no *li) {
     }
 }
 
-void carregar_lista (tarefa_no *li) {
+tarefa_no *carregar_lista (tarefa_no *li) {
     tarefa carregando_tarefas;
     FILE *file = fopen(FILE_NAME, "rb");
     if (file) {
@@ -33,7 +33,9 @@ void carregar_lista (tarefa_no *li) {
             li = inserir_tarefa(li, carregando_tarefas.descricao, carregando_tarefas.prioridade, carregando_tarefas.prazo.dia, carregando_tarefas.prazo.mes, carregando_tarefas.prazo.ano, carregando_tarefas.conclusao.ano, carregando_tarefas.conclusao.mes, carregando_tarefas.conclusao.ano, carregando_tarefas.status);
         }
         fclose(file);
+        return li;
     }
+    return li;
 }
 
 tarefa_no *criar_no(){

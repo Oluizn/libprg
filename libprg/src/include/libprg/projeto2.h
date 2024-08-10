@@ -23,7 +23,7 @@ typedef struct tarefa_t {
 }tarefa_no;
 
 int salvar_lista(tarefa_no *li);
-void carregar_lista (tarefa_no *li);
+tarefa_no *carregar_lista (tarefa_no *li);
 tarefa_no *criar_no();
 tarefa_no *inserir_tarefa(tarefa_no *li, char *descricao, int indice_prioridade, int dia_p, int mes_p, int ano_p, int dia_c, int mes_c, int ano_c, char *status);
 tarefa_no *busca_codigo (tarefa_no *li, int codigo);
