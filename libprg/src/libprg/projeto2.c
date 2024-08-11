@@ -52,7 +52,6 @@ tarefa_no *criar_no(){
 tarefa_no *inserir_tarefa(tarefa_no *li, char *descricao, int indice_prioridade, int dia_p, int mes_p, int ano_p, int dia_c, int mes_c, int ano_c, char *status){
     tarefa_no *aux = li, * novo_no = criar_no();
     strcpy(novo_no->pos.descricao, descricao);
-    novo_no->pos.descricao[strcspn(novo_no->pos.descricao, "\n")] = '\0';
     novo_no->pos.prazo.dia = dia_p;
     novo_no->pos.prazo.mes = mes_p;
     novo_no->pos.prazo.ano = ano_p;
