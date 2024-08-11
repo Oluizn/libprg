@@ -52,6 +52,9 @@ tarefa_no *criar_no(){
 tarefa_no *inserir_tarefa(tarefa_no *li, char *descricao, int indice_prioridade, int dia_p, int mes_p, int ano_p, int dia_c, int mes_c, int ano_c, char *status){
     tarefa_no *aux = li, * novo_no = criar_no();
     strcpy(novo_no->pos.descricao, descricao);
+    for (int i = 0; i < strlen(descricao); i++)
+        descricao[i] = toupper(descricao[i]);
+    novo_no->pos.descricao[strcspn(novo_no->pos.descricao, "\n")] = '\0';
     novo_no->pos.prazo.dia = dia_p;
     novo_no->pos.prazo.mes = mes_p;
     novo_no->pos.prazo.ano = ano_p;
@@ -99,9 +102,9 @@ tarefa_no *busca_prioridade (tarefa_no *li, int prioridade) {
 
 tarefa_no *busca_descricao (tarefa_no *li, char *descricao) {
     tarefa_no *aux = li;
-    for (int i = 0; i < strlen(descricao); i++) {
-        descricao[i]= toupper(descricao[i]);
-        aux->pos.descricao[i] = toupper(aux->pos.descricao[i]);
+    if (aux) {
+        for (int i = 0; i < strlen(descricao); i++)
+            descricao[i]= toupper(descricao[i]);
     }
     while (aux) {
         if (strcmp(descricao, aux->pos.descricao) == 0)
