@@ -59,7 +59,7 @@ tarefa_no *inserir_tarefa(tarefa_no *li, char *descricao, int indice_prioridade,
     novo_no->pos.prazo.mes = mes_p;
     novo_no->pos.prazo.ano = ano_p;
     strcpy(novo_no->pos.status, status);
-    novo_no->pos.conclusao.ano = dia_c;
+    novo_no->pos.conclusao.dia = dia_c;
     novo_no->pos.conclusao.mes = mes_c;
     novo_no->pos.conclusao.ano = ano_c;
     novo_no->pos.prioridade = indice_prioridade;
