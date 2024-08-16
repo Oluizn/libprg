@@ -258,3 +258,19 @@ void tarefa_atrasada (tarefa_no *li) {
         aux = aux->prox;
     }
 }
+
+void ordenar_prazo (tarefa_no *li) {
+    tarefa_no *aux = li->prox;
+    int counter = 0;
+    while (aux) {
+        if ((aux->pos.prazo.dia + aux->pos.prazo.mes + aux->pos.prazo.ano)  < (aux->anterior->pos.prazo.dia + aux->anterior->pos.prazo.mes + aux->anterior->pos.prazo.ano)) {
+            tarefa tarefa_aux = aux->anterior->pos;
+            aux->anterior->pos = aux->pos;
+            aux->pos = tarefa_aux;
+            counter++;
+        }
+        aux = aux->prox;
+    }
+    if (counter !=0)
+        return ordenar_prazo(li);
+}
