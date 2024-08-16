@@ -201,10 +201,11 @@ void remover_tarefa (tarefa_no **li, int num) {
 
 void editar_tarefa_descricao (tarefa_no *li, char *nova_descricao, int codigo) {
     tarefa_no *aux = busca_codigo(li, codigo);
-    if (aux)
+    if (aux) {
         for (int i = 0; i < strlen(nova_descricao); i++)
             nova_descricao[i] = toupper(nova_descricao[i]);
         strcpy(aux->pos.descricao, nova_descricao);
+    }
 }
 
 void editar_tarefa_prioridade (tarefa_no *li, int novo_indice_prioridade, int codigo) {
