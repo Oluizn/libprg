@@ -2,18 +2,35 @@
 #include "stdio.h"
 
 int particiona (int *vet, int inicio, int fim) {
-    int pivo = vet[fim];
-    int i = inicio - 1;
-    for (int j = inicio; j < fim -1; j++) {
-        if (vet[j] <= pivo) {
-            i = i+1;
-        }
+    int pivo = (vet[inicio] + vet[fim] + vet[(inicio + fim)/2])/3;
+    while (inicio < fim) {
+        while (inicio < fim && vet[inicio] <= pivo)
+            inicio++;
+        while (inicio < fim && vet[fim] > pivo)
+            fim--;
+        int aux = vet[inicio];
+        vet[inicio] = vet[fim];
+        vet[fim] = aux;
     }
-    i = i + 1;
-    return i;
+    return inicio;
 }
-// int* quick_sort (int *vet, int inicio, int fim) {
-//     if (inicio < fim) {
-//         int p
-//     }
-// }
+
+void quick_sort(int *vet, int inicio, int fim) {
+    if (inicio < fim) {
+        int pos = particiona(vet, inicio, fim);
+        quick_sort(vet, inicio, pos -1);
+        quick_sort(vet, pos, fim);
+    }
+}
+void imprimir (int *vet, int tam) {
+    for (int i = 0; i <= tam; i++)
+        imprimir("%d", vet[i]);
+    printf("\n");
+}
+
+int main() {
+    int vet[6] = {5,3,25,1,47, 32};
+    imprimir(vet, 5);
+    quick_sort(vet, 0, 5);
+    imprimir(vet,5);
+}
