@@ -74,6 +74,7 @@ void menu(){
 
     // Operador do switch
     int op = 0;
+    carregar_arquivo();
 
     while (op != 9){
         printf("Escolha uma acao:\n");
@@ -115,8 +116,6 @@ void menu_edicao_exclusao(){
     printf("Informe a posicao do contato para selecionar, ou 0 para sair\n");
     scanf("%d", &s);
     fflush(stdin);
-    carregar_arquivo();
-
     // Teste para ver se o valor inserido não está fora da lista
     if (s > 0 && s <= counter) {
         s--;
