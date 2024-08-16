@@ -258,29 +258,3 @@ void tarefa_atrasada (tarefa_no *li) {
         aux = aux->prox;
     }
 }
-
-int particiona (tarefa_no *li, int inicio, int fim) {
-    tarefa_no *aux_lista_inicio = li;
-    tarefa_no *aux_lista_fim = li;
-    while (aux_lista_fim->prox)
-        aux_lista_fim = aux_lista_fim->prox;
-    int pivo = (aux_lista_inicio->pos.codigo + aux_lista_fim->pos.codigo + ((aux_lista_inicio->pos.codigo + aux_lista_fim->pos.codigo)/2)/3);
-    while (aux_lista_inicio->pos.codigo < aux_lista_fim->pos.codigo) {
-        while (aux_lista_inicio->pos.codigo < aux_lista_fim->pos.codigo && vet[inicio] <= pivo)
-            inicio++;
-        while (inicio < fim && vet[fim] > pivo)
-            fim--;
-        int aux = vet[inicio];
-        vet[inicio] = vet[fim];
-        vet[fim] = aux;
-    }
-    return inicio;
-}
-
-void quick_sort(tarefa_no *li, int inicio, int fim) {
-    if (inicio < fim) {
-        int pos = particiona(vet, inicio, fim);
-        quick_sort(vet, inicio, pos -1);
-        quick_sort(vet, pos, fim);
-    }
-}
