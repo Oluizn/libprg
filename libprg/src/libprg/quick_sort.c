@@ -22,6 +22,7 @@ void quick_sort(int *vet, int inicio, int fim) {
         quick_sort(vet, pos, fim);
     }
 }
+
 void imprimir_quick (int *vet, int tam) {
     for (int i = 0; i <= tam; i++)
         printf("%d", vet[i]);

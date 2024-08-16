@@ -82,7 +82,7 @@ tarefa_no *inserir_tarefa(tarefa_no *li, char *descricao, int indice_prioridade,
 
 tarefa_no *busca_codigo (tarefa_no *li, int codigo) {
     tarefa_no *aux = li;
-    while (aux) {
+    while (aux && codigo != 0) {
         if (aux->pos.codigo == codigo)
             return aux;
         aux = aux->prox;
@@ -259,18 +259,28 @@ void tarefa_atrasada (tarefa_no *li) {
     }
 }
 
+int particiona (tarefa_no *li, int inicio, int fim) {
+    tarefa_no *aux_lista_inicio = li;
+    tarefa_no *aux_lista_fim = li;
+    while (aux_lista_fim->prox)
+        aux_lista_fim = aux_lista_fim->prox;
+    int pivo = (aux_lista_inicio->pos.codigo + aux_lista_fim->pos.codigo + ((aux_lista_inicio->pos.codigo + aux_lista_fim->pos.codigo)/2)/3);
+    while (aux_lista_inicio->pos.codigo < aux_lista_fim->pos.codigo) {
+        while (aux_lista_inicio->pos.codigo < aux_lista_fim->pos.codigo && vet[inicio] <= pivo)
+            inicio++;
+        while (inicio < fim && vet[fim] > pivo)
+            fim--;
+        int aux = vet[inicio];
+        vet[inicio] = vet[fim];
+        vet[fim] = aux;
+    }
+    return inicio;
+}
 
-//  função para trocar o \n no final da string para \0, para corrigir o problema do fgets no linux, porém não está funcionando direito
-// void ler_string(char *nome, int tamanho) {
-//     char letra, i = 0;
-//     do
-//     {
-//         letra = getchar ();
-//         if(letra != '\n' && i < tamanho - 1)
-//         {
-//             nome[i] = letra;
-//             i++;
-//         }
-//     }while(letra != '\n');
-//     nome[i] = '\0';
-// }
+void quick_sort(tarefa_no *li, int inicio, int fim) {
+    if (inicio < fim) {
+        int pos = particiona(vet, inicio, fim);
+        quick_sort(vet, inicio, pos -1);
+        quick_sort(vet, pos, fim);
+    }
+}
