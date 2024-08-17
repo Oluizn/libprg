@@ -245,6 +245,7 @@ void altera_status_tarefa (tarefa_no *li, int codigo) {
         }
     }
 }
+
 void tarefa_atrasada (tarefa_no *li) {
     tarefa_no *aux = li;
     struct tm *data;
@@ -260,6 +261,8 @@ void tarefa_atrasada (tarefa_no *li) {
     }
 }
 
+// Funções para ordenar: ponteiro inicia no segundo elemento da lista e compara com o elemento de trás, se for verdadeiro, troca as informações do dois, sem precisar trocar os nós.
+// Função recursiva até a lista estar totalmente ordenada
 void ordenar_prazo_decrescente (tarefa_no *li) {
     tarefa_no *aux = li->prox;
     int counter = 0;
