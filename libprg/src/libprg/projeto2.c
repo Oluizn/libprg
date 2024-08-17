@@ -6,6 +6,7 @@
 #include "ctype.h"
 
 int salvar_lista(tarefa_no *li) {
+    ordenar_codigo(li);
     FILE *file = fopen(FILE_NAME, "wb");
     if (file) {
         tarefa_no *aux = li;
@@ -320,4 +321,20 @@ void ordenar_prioridade_menor (tarefa_no *li) {
     }
     if (counter !=0)
         return ordenar_prioridade_menor(li);
+}
+
+void ordenar_codigo (tarefa_no *li) {
+    tarefa_no *aux = li->prox;
+    int counter = 0;
+    while (aux) {
+        if (aux->pos.codigo < aux->anterior->pos.codigo) {
+            tarefa tarefa_aux = aux->anterior->pos;
+            aux->anterior->pos = aux->pos;
+            aux->pos = tarefa_aux;
+            counter++;
+        }
+        aux = aux->prox;
+    }
+    if (counter !=0)
+        return ordenar_codigo(li);
 }

@@ -45,5 +45,6 @@ void ordenar_prazo_decrescente (tarefa_no *li);
 void ordenar_prazo_crescente (tarefa_no *li);
 void ordenar_prioridade_maior (tarefa_no *li);
 void ordenar_prioridade_menor (tarefa_no *li);
+void ordenar_codigo (tarefa_no *li);
 
 #endif //PROJETO2_H
