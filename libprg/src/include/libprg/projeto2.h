@@ -42,5 +42,7 @@ void editar_tarefa_prazo (tarefa_no *li, int novo_dia, int novo_mes, int novo_an
 void altera_status_tarefa (tarefa_no *li, int codigo);
 void tarefa_atrasada (tarefa_no *li);
 void ordenar_prazo (tarefa_no *li);
+void ordenar_prioridade_maior_menor (tarefa_no *li);
+void ordenar_prioridade_menor_maior (tarefa_no *li);
 
 #endif //PROJETO2_H

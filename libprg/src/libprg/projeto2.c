@@ -274,3 +274,34 @@ void ordenar_prazo (tarefa_no *li) {
     if (counter !=0)
         return ordenar_prazo(li);
 }
+
+void ordenar_prioridade_maior_menor (tarefa_no *li) {
+    tarefa_no *aux = li->prox;
+    int counter = 0;
+    while (aux) {
+        if (aux->pos.prioridade > aux->anterior->pos.prioridade) {
+            tarefa tarefa_aux = aux->anterior->pos;
+            aux->anterior->pos = aux->pos;
+            aux->pos = tarefa_aux;
+            counter++;
+        }
+        aux = aux->prox;
+    }
+    if (counter !=0)
+        return ordenar_prioridade_maior_menor(li);
+}
+void ordenar_prioridade_menor_maior (tarefa_no *li) {
+    tarefa_no *aux = li->prox;
+    int counter = 0;
+    while (aux) {
+        if (aux->pos.prioridade < aux->anterior->pos.prioridade) {
+            tarefa tarefa_aux = aux->anterior->pos;
+            aux->anterior->pos = aux->pos;
+            aux->pos = tarefa_aux;
+            counter++;
+        }
+        aux = aux->prox;
+    }
+    if (counter !=0)
+        return ordenar_prioridade_menor_maior(li);
+}
