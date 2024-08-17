@@ -262,7 +262,7 @@ void tarefa_atrasada (tarefa_no *li) {
 }
 
 // Funções para ordenar: ponteiro inicia no segundo elemento da lista e compara com o elemento de trás, se for verdadeiro, troca as informações do dois, sem precisar trocar os nós.
-// Função recursiva até a lista estar totalmente ordenada
+// Função recursiva até a lista estar totalmente ordenada.
 void ordenar_prazo_decrescente (tarefa_no *li) {
     tarefa_no *aux = li->prox;
     int counter = 0;
