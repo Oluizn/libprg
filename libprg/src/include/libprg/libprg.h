@@ -22,7 +22,6 @@ struct numero {
 };
 
 // arvore
-no_t *criar_no (int valor);
 
 // struct fila estática
 typedef struct T_FILA {
