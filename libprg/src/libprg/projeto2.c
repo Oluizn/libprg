@@ -256,7 +256,7 @@ void tarefa_atrasada (tarefa_no *li) {
         if (aux->pos.prazo.dia < data->tm_mday)
             if (aux->pos.prazo.mes <= data->tm_mon+1)
                 if (aux->pos.prazo.ano <= data->tm_year+1900)
-                    strcpy(aux->pos.status, "Atradasa");
+                    strcpy(aux->pos.status, "Atrasada");
         aux = aux->prox;
     }
 }

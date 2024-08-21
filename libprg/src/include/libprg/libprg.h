@@ -21,6 +21,9 @@ struct numero {
     struct numero *prox;
 };
 
+// arvore
+no_t *criar_no (int valor);
+
 // struct fila estática
 typedef struct T_FILA {
     int dados[3];
