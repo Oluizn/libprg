@@ -200,6 +200,13 @@ void remover_tarefa (tarefa_no **li, int num) {
     }
 }
 
+void libera_lista (tarefa_no **li) {
+    tarefa_no *aux = *li;
+    for (int i = 0; aux; i++) {
+        remover_tarefa(li, i);
+    }
+}
+
 void editar_tarefa_descricao (tarefa_no *li, char *nova_descricao, int codigo) {
     tarefa_no *aux = busca_codigo(li, codigo);
     if (aux) {
