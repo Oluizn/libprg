@@ -341,3 +341,15 @@ void ordenar_codigo (tarefa_no *li) {
     if (counter !=0)
         return ordenar_codigo(li);
 }
+
+void libera_lista (tarefa_no *li) {
+    if (li) {
+        tarefa_no *no;
+        while (li) {
+            no = li;
+            li = li->prox;
+            free(no);
+        }
+        free(li);
+    }
+}
