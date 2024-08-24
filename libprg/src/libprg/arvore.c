@@ -133,6 +133,13 @@ no_t *remover(no_t *raiz, int chave) {
     return raiz;
 }
 
+int contar_no (no_t *raiz) {
+    if (raiz == NULL)
+        return 0;
+    else
+        return 1 + contador(raiz->esquerdo) + contar_no(raiz->direito);
+}
+
 int contador_rotacoes() {
     return contador;
 }
