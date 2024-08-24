@@ -1,7 +1,7 @@
 #include "libprg/arvore.h"
 #include "stdlib.h"
 #include <stdio.h>
-// int contador = 0;
+int contador = 0;
 
 no *criar_no(int x) {
     no *novo = (no*) malloc(sizeof(no));
@@ -131,6 +131,6 @@ no *remover(no *raiz, int chave) {
     return raiz;
 }
 
-// int contador_rotacoes() {
-//     return contador;
-// }
+int contador_rotacoes() {
+    return contador;
+}
