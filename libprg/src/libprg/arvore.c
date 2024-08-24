@@ -3,8 +3,8 @@
 #include <stdio.h>
 int contador = 0;
 
-no *criar_no(int x) {
-    no *novo = (no*) malloc(sizeof(no));
+no_t *criar_no(int x) {
+    no_t *novo = (no_t*) malloc(sizeof(no_t));
     if (novo) {
         novo->valor = x;
         novo->esquerdo = NULL;
@@ -18,22 +18,22 @@ short maior(short a, short b) {
     return (a > b)? a: b;
 }
 
-short altura_no (no *no) {
-    if (no)
-        return no->altura;
+short altura_no (no_t *node) {
+    if (node)
+        return node->altura;
     else
         return -1;
 }
 
-short fator_balanceamento (no *no) {
-    if (no)
-        return (altura_no(no->esquerdo)-altura_no(no->direito));
+short fator_balanceamento (no_t *node) {
+    if (node)
+        return (altura_no(node->esquerdo)-altura_no(node->direito));
     else
         return 0;
 }
 
-no *rotacao_esquerda (no *raiz) {
-    no *filho, *folha;
+no_t *rotacao_esquerda (no_t *raiz) {
+    no_t *filho, *folha;
     filho = raiz->direito;
     folha = filho->esquerdo;
     filho->esquerdo = raiz;
@@ -44,8 +44,8 @@ no *rotacao_esquerda (no *raiz) {
     return filho;
 }
 
-no* rotacao_direita (no* raiz) {
-    no *filho, *folha;
+no_t* rotacao_direita (no_t* raiz) {
+    no_t *filho, *folha;
     filho = raiz->esquerdo;
     folha = filho->direito;
     filho->direito = raiz;
@@ -56,29 +56,30 @@ no* rotacao_direita (no* raiz) {
     return filho;
 }
 
-no* rotacao_direita_esquerda (no *raiz) {
+no_t* rotacao_direita_esquerda (no_t *raiz) {
     raiz->direito = rotacao_direita(raiz->direito);
     return rotacao_esquerda(raiz);
 }
 
-no *rotacao_esquerda_direita (no *raiz) {
+no_t *rotacao_esquerda_direita (no_t *raiz) {
     raiz->esquerdo = rotacao_esquerda(raiz->esquerdo);
     return rotacao_direita(raiz);
 }
 
-no *inserir_valor_arvore (no *raiz, int x) {
-    if (raiz == NULL)
-        raiz = criar_no(x);
-    if (x < raiz->valor)
+no_t *inserir_valor_arvore (no_t *raiz, int x) {
+    if (raiz == NULL) {
+       return  criar_no(x);
+    } else if (x < raiz->valor) {
         raiz->esquerdo = inserir_valor_arvore(raiz->esquerdo, x);
-    else if (x > raiz->valor)
+    } else if (x > raiz->valor) {
         raiz->direito = inserir_valor_arvore(raiz->direito, x);
+    }
     raiz->altura = maior(altura_no(raiz->esquerdo), altura_no(raiz->direito)) + 1;
     raiz = balancear(raiz);
     return raiz;
 }
 
-no *balancear(no *raiz) {
+no_t *balancear(no_t *raiz) {
     short fator = fator_balanceamento(raiz);
     if (fator < -1 && fator_balanceamento(raiz->direito) <= 0)
         raiz = rotacao_esquerda(raiz);
@@ -91,7 +92,7 @@ no *balancear(no *raiz) {
     return raiz;
 }
 
-no *remover(no *raiz, int chave) {
+no_t *remover(no_t *raiz, int chave) {
     if(raiz == NULL)
         return NULL;
     else
@@ -102,7 +103,7 @@ no *remover(no *raiz, int chave) {
             }
             else {
                 if (raiz->esquerdo != NULL && raiz->direito != NULL) {
-                    no *aux = raiz->esquerdo;
+                    no_t *aux = raiz->esquerdo;
                     while (aux->direito != NULL)
                         aux = aux->direito;
                     raiz->valor = aux->valor;
@@ -111,7 +112,7 @@ no *remover(no *raiz, int chave) {
                     return raiz;
                 }
                 else {
-                    no *aux = raiz;
+                    no_t *aux = raiz;
                     if (raiz->esquerdo != NULL)
                         aux = aux->esquerdo;
                     else

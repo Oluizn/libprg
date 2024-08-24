@@ -9,20 +9,20 @@ typedef struct no {
     int valor;
     struct no *esquerdo, *direito;
     int altura;
-}no;
+}no_t;
 
 int contador_rotacoes();
-no *criar_no(int x);
+no_t *criar_no(int x);
 short maior(short a, short b);
-short altura_no (no *no);
-short fator_balanceamento (no *no);
-no *rotacao_esquerda (no *raiz);
-no* rotacao_direita (no* raiz);
-no* rotacao_direita_esquerda (no *raiz);
-no *rotacao_esquerda_direita (no *raiz);
-no *inserir_valor_arvore (no *raiz, int x);
-no *balancear(no *raiz);
-no *remover(no *raiz, int chave);
+short altura_no (no_t *node);
+short fator_balanceamento (no_t *node);
+no_t *rotacao_esquerda (no_t *raiz);
+no_t* rotacao_direita (no_t* raiz);
+no_t* rotacao_direita_esquerda (no_t *raiz);
+no_t *rotacao_esquerda_direita (no_t *raiz);
+no_t *inserir_valor_arvore (no_t *raiz, int x);
+no_t *balancear(no_t *raiz);
+no_t *remover(no_t *raiz, int chave);
 
 #endif
 #endif //ARVORE_H
