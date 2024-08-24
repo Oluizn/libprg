@@ -67,8 +67,9 @@ no *rotacao_esquerda_direita (no *raiz) {
 }
 
 no *inserir_valor_arvore (no *raiz, int valor) {
-    if (raiz == NULL)
+    if (raiz == NULL) {
         return criar_no(valor);
+    }
     else {
         if (valor < raiz->valor)
             raiz->esquerdo = inserir_valor_arvore(raiz->esquerdo, valor);
