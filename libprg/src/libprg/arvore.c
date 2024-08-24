@@ -137,7 +137,7 @@ int contar_no (no_t *raiz) {
     if (raiz == NULL)
         return 0;
     else
-        return 1 + contador(raiz->esquerdo) + contar_no(raiz->direito);
+        return 1 + contar_no(raiz->esquerdo) + contar_no(raiz->direito);
 }
 
 int contador_rotacoes() {
