@@ -6,7 +6,7 @@ int contador = 0;
 no_t *criar_no(int x) {
     no_t *novo = (no_t*) malloc(sizeof(no_t));
     if (novo) {
-        novo->valor = x;
+        novo->z = x;
         novo->esquerdo = NULL;
         novo->direito = NULL;
         novo->altura = 0;
@@ -69,9 +69,9 @@ no_t *rotacao_esquerda_direita (no_t *raiz) {
 no_t *inserir_valor_arvore (no_t *raiz, int x) {
     if (raiz == NULL) {
        return  criar_no(x);
-    } else if (x < raiz->valor) {
+    } else if (x < raiz->z) {
         raiz->esquerdo = inserir_valor_arvore(raiz->esquerdo, x);
-    } else if (x > raiz->valor) {
+    } else if (x > raiz->z) {
         raiz->direito = inserir_valor_arvore(raiz->direito, x);
     }
     raiz->altura = maior(altura_no(raiz->esquerdo), altura_no(raiz->direito)) + 1;
@@ -96,7 +96,7 @@ no_t *remover(no_t *raiz, int chave) {
     if(raiz == NULL)
         return NULL;
     else
-        if (raiz->valor == chave) {
+        if (raiz->z == chave) {
             if (raiz->esquerdo == NULL && raiz->direito == NULL) {
                 free(raiz);
                 return NULL;
@@ -106,8 +106,8 @@ no_t *remover(no_t *raiz, int chave) {
                     no_t *aux = raiz->esquerdo;
                     while (aux->direito != NULL)
                         aux = aux->direito;
-                    raiz->valor = aux->valor;
-                    aux->valor = chave;
+                    raiz->z = aux->z;
+                    aux->z = chave;
                     raiz->esquerdo = remover(raiz->esquerdo, chave);
                     return raiz;
                 }
@@ -122,7 +122,7 @@ no_t *remover(no_t *raiz, int chave) {
                 }
             }
         } else{
-            if(chave < raiz->valor)
+            if(chave < raiz->z)
                 raiz->esquerdo = remover(raiz->esquerdo, chave);
             else
                 raiz->direito = remover(raiz->direito, chave);

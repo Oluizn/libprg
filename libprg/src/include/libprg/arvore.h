@@ -6,7 +6,7 @@
 #include <stdlib.h>
 
 typedef struct no {
-    int valor;
+    int z;
     struct no *esquerdo, *direito;
     int altura;
 }no_t;
