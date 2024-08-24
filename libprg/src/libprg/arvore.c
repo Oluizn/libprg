@@ -71,10 +71,12 @@ no *inserir_valor_arvore (no *raiz, int valor) {
         return criar_no(valor);
     }
     else {
-        if (valor < raiz->valor)
+        if (valor < raiz->valor) {
             raiz->esquerdo = inserir_valor_arvore(raiz->esquerdo, valor);
-        else if (valor > raiz->valor)
+        }
+        else if (valor > raiz->valor) {
             raiz->direito = inserir_valor_arvore(raiz->direito, valor);
+        }
     }
     raiz->altura = maior(altura_no(raiz->esquerdo), altura_no(raiz->direito)) + 1;
     raiz = balancear(raiz);
