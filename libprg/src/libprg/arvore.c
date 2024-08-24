@@ -1,5 +1,7 @@
 #include "../include/libprg/arvore.h"
 
+#include <stdio.h>
+
 int contador_rotacao_esquerda = 0;
 int contador_rotacao_direita = 0;
 
@@ -91,5 +93,45 @@ no *balancear(no *raiz) {
         raiz = rotacao_esquerda_direita(raiz);
     else if (fator < -1 && fator_balanceamento(raiz->direito) > 0)
         raiz = rotacao_direita_esquerda(raiz);
+    return raiz;
+}
+
+no *remover(no *raiz, int chave) {
+    if(raiz == NULL)
+        return NULL;
+    else
+        if (raiz->valor == chave) {
+            if (raiz->esquerdo == NULL && raiz->direito == NULL) {
+                free(raiz);
+                return NULL;
+            }
+            else {
+                if (raiz->esquerdo != NULL && raiz->direito != NULL) {
+                    no *aux = raiz->esquerdo;
+                    while (aux->direito != NULL)
+                        aux = aux->direito;
+                    raiz->valor = aux->valor;
+                    aux->valor = chave;
+                    raiz->esquerdo = remover(raiz->esquerdo, chave);
+                    return raiz;
+                }
+                else {
+                    no *aux;
+                    if (raiz->esquerdo != NULL)
+                        aux = aux->esquerdo;
+                    else
+                        aux = aux->direito;
+                    free(raiz);
+                    return aux;
+                }
+            }
+        } else{
+            if(chave < raiz->valor)
+                raiz->esquerdo = remover(raiz->esquerdo, chave);
+            else
+                raiz->direito = remover(raiz->direito, chave);
+    }
+    raiz->altura = maior(altura_no(raiz->esquerdo), altura_no(raiz->direito)) + 1;
+    raiz = balancear(raiz);
     return raiz;
 }

@@ -17,4 +17,5 @@ no* rotacao_direita (no* raiz);
 no* rotacao_direita_esquerda (no *raiz);
 no *rotacao_esquerda_direita (no *raiz);
 no *balancear(no *raiz);
+no *remover(no *raiz, int chave);
 #endif //ARVORE_H
