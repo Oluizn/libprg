@@ -1,5 +1,8 @@
 #ifndef ARVORE_H
+#ifndef _LIB_A
+#define _LIB_A
 #define ARVORE_H
+
 #include <stdlib.h>
 
 typedef struct no {
@@ -21,4 +24,5 @@ no *inserir_valor_arvore (no *raiz, int x);
 no *balancear(no *raiz);
 no *remover(no *raiz, int chave);
 
+#endif
 #endif //ARVORE_H
