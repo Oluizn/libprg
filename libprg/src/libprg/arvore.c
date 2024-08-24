@@ -40,7 +40,7 @@ no_t *rotacao_esquerda (no_t *raiz) {
     raiz->direito = folha;
     raiz->altura = maior(altura_no(raiz->esquerdo), altura_no(raiz->direito)) + 1;
     filho->altura = maior(altura_no(filho->esquerdo), altura_no(filho->direito)) + 1;
-    // contador++;
+    contador++;
     return filho;
 }
 
@@ -52,7 +52,7 @@ no_t* rotacao_direita (no_t* raiz) {
     raiz->esquerdo = folha;
     raiz->altura = maior(altura_no(raiz->esquerdo), altura_no(raiz->direito)) + 1;
     filho->altura = maior(altura_no(filho->esquerdo), altura_no(filho->direito)) + 1;
-    // contador++;
+    contador++;
     return filho;
 }
 
