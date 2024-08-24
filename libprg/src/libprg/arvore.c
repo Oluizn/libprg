@@ -150,3 +150,11 @@ int guardar_no (no_t *raiz) {
 int contador_rotacoes() {
     return contador;
 }
+
+void liberar_arvore (no_t *raiz) {
+    if (raiz) {
+        liberar_arvore(raiz->esquerdo);
+        liberar_arvore(raiz->direito);
+        free(raiz);
+    }
+}
