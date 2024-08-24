@@ -8,8 +8,8 @@ typedef struct no {
     int altura;
 }no;
 
-// int contador_rotacao_esquerda;
-// int contador_rotacao_direita;
+int contador_rotacao_esquerda;
+int contador_rotacao_direita;
 
 no *criar_no(int x);
 short maior(short a, short b);
