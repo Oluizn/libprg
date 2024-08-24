@@ -111,7 +111,7 @@ no *remover(no *raiz, int chave) {
                     return raiz;
                 }
                 else {
-                    no *aux;
+                    no *aux = raiz;
                     if (raiz->esquerdo != NULL)
                         aux = aux->esquerdo;
                     else
