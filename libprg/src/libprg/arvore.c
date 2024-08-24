@@ -1,4 +1,4 @@
-#include "../include/libprg/arvore.h"
+#include "libprg/arvore.h"
 #include "stdlib.h"
 #include <stdio.h>
 // int contador = 0;
@@ -69,12 +69,10 @@ no *rotacao_esquerda_direita (no *raiz) {
 no *inserir_valor_arvore (no *raiz, int x) {
     if (raiz == NULL)
         raiz = criar_no(x);
-    else {
-        if (x < raiz->valor)
-            raiz->esquerdo = inserir_valor_arvore(raiz->esquerdo, x);
-        else if (x > raiz->valor)
-            raiz->direito = inserir_valor_arvore(raiz->direito, x);
-    }
+    if (x < raiz->valor)
+        raiz->esquerdo = inserir_valor_arvore(raiz->esquerdo, x);
+    else if (x > raiz->valor)
+        raiz->direito = inserir_valor_arvore(raiz->direito, x);
     raiz->altura = maior(altura_no(raiz->esquerdo), altura_no(raiz->direito)) + 1;
     raiz = balancear(raiz);
     return raiz;
