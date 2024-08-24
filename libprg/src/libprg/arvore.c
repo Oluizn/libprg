@@ -66,16 +66,16 @@ no *rotacao_esquerda_direita (no *raiz) {
     return rotacao_direita(raiz);
 }
 
-no *inserir_valor_arvore (no *raiz, int valor) {
+no *inserir_valor_arvore (no *raiz, int x) {
     if (raiz == NULL) {
-        return criar_no(valor);
+        return criar_no(x);
     }
     else {
-        if (valor < raiz->valor) {
-            raiz->esquerdo = inserir_valor_arvore(raiz->esquerdo, valor);
+        if (x < raiz->valor) {
+            raiz->esquerdo = inserir_valor_arvore(raiz->esquerdo, x);
         }
-        else if (valor > raiz->valor) {
-            raiz->direito = inserir_valor_arvore(raiz->direito, valor);
+        else if (x > raiz->valor) {
+            raiz->direito = inserir_valor_arvore(raiz->direito, x);
         }
     }
     raiz->altura = maior(altura_no(raiz->esquerdo), altura_no(raiz->direito)) + 1;
