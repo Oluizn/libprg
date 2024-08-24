@@ -13,9 +13,9 @@ typedef struct no {
 
 int contador_rotacoes();
 no_t *criar_no(int x);
-short maior(short a, short b);
-short altura_no (no_t *node);
-short fator_balanceamento (no_t *node);
+int maior(int a, int b);
+int altura_no (no_t *node);
+int fator_balanceamento (no_t *node);
 no_t *rotacao_esquerda (no_t *raiz);
 no_t* rotacao_direita (no_t* raiz);
 no_t* rotacao_direita_esquerda (no_t *raiz);

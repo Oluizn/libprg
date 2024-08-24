@@ -14,18 +14,18 @@ no_t *criar_no(int x) {
     return novo;
 }
 
-short maior(short a, short b) {
+int maior(int a, int b) {
     return (a > b)? a: b;
 }
 
-short altura_no (no_t *node) {
+int altura_no (no_t *node) {
     if (node)
         return node->altura;
     else
         return -1;
 }
 
-short fator_balanceamento (no_t *node) {
+int fator_balanceamento (no_t *node) {
     if (node)
         return (altura_no(node->esquerdo)-altura_no(node->direito));
     else
@@ -81,7 +81,7 @@ no_t *inserir_valor_arvore (no_t *raiz, int x) {
 }
 
 no_t *balancear(no_t *raiz) {
-    short fator = fator_balanceamento(raiz);
+    int fator = fator_balanceamento(raiz);
     if (fator < -1 && fator_balanceamento(raiz->direito) <= 0)
         raiz = rotacao_esquerda(raiz);
     else if (fator > 1 && fator_balanceamento(raiz->esquerdo) >= 0)
