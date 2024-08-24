@@ -8,7 +8,7 @@ typedef struct no {
     int altura;
 }no;
 
-int contador_rotacoes();
+// int contador_rotacoes();
 no *criar_no(int x);
 short maior(short a, short b);
 short altura_no (no *no);
@@ -17,7 +17,7 @@ no *rotacao_esquerda (no *raiz);
 no* rotacao_direita (no* raiz);
 no* rotacao_direita_esquerda (no *raiz);
 no *rotacao_esquerda_direita (no *raiz);
-no *inserir (no *raiz, int valor);
+no *inserir_valor_arvore (no *raiz, int valor);
 no *balancear(no *raiz);
 no *remover(no *raiz, int chave);
 

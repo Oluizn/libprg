@@ -1,7 +1,7 @@
 #include "../include/libprg/arvore.h"
 
 #include <stdio.h>
-int contador = 0;
+// int contador = 0;
 
 no *criar_no(int x) {
     no *novo = (no*) malloc(sizeof(no));
@@ -40,7 +40,7 @@ no *rotacao_esquerda (no *raiz) {
     raiz->direito = folha;
     raiz->altura = maior(altura_no(raiz->esquerdo), altura_no(raiz->direito)) + 1;
     filho->altura = maior(altura_no(filho->esquerdo), altura_no(filho->direito)) + 1;
-    contador++;
+    // contador++;
     return filho;
 }
 
@@ -52,7 +52,7 @@ no* rotacao_direita (no* raiz) {
     raiz->esquerdo = folha;
     raiz->altura = maior(altura_no(raiz->esquerdo), altura_no(raiz->direito)) + 1;
     filho->altura = maior(altura_no(filho->esquerdo), altura_no(filho->direito)) + 1;
-    contador++;
+    // contador++;
     return filho;
 }
 
@@ -66,14 +66,14 @@ no *rotacao_esquerda_direita (no *raiz) {
     return rotacao_direita(raiz);
 }
 
-no *inserir (no *raiz, int valor) {
+no *inserir_valor_arvore (no *raiz, int valor) {
     if (raiz == NULL)
         return criar_no(valor);
     else {
         if (valor < raiz->valor)
-            raiz->esquerdo = inserir(raiz->esquerdo, valor);
+            raiz->esquerdo = inserir_valor_arvore(raiz->esquerdo, valor);
         else if (valor > raiz->valor)
-            raiz->direito = inserir(raiz->direito, valor);
+            raiz->direito = inserir_valor_arvore(raiz->direito, valor);
     }
     raiz->altura = maior(altura_no(raiz->esquerdo), altura_no(raiz->direito)) + 1;
     raiz = balancear(raiz);
@@ -134,6 +134,6 @@ no *remover(no *raiz, int chave) {
     return raiz;
 }
 
-int contador_rotacoes() {
-    return contador;
-}
+// int contador_rotacoes() {
+//     return contador;
+// }
