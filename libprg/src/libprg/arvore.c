@@ -67,12 +67,13 @@ no_t *rotacao_esquerda_direita (no_t *raiz) {
 }
 
 no_t *inserir_valor_arvore (no_t *raiz, int x) {
-    if (raiz == NULL) {
+    if (raiz == NULL)
        raiz = criar_no(x);
-    } else if (x < raiz->z) {
-        raiz->esquerdo = inserir_valor_arvore(raiz->esquerdo, x);
-    } else if (x > raiz->z) {
-        raiz->direito = inserir_valor_arvore(raiz->direito, x);
+    else {
+        if (x < raiz->z)
+            raiz->esquerdo = inserir_valor_arvore(raiz->esquerdo, x);
+        else if (x > raiz->z)
+            raiz->direito = inserir_valor_arvore(raiz->direito, x);
     }
     raiz->altura = maior(altura_no(raiz->esquerdo), altura_no(raiz->direito)) + 1;
     raiz = balancear(raiz);
