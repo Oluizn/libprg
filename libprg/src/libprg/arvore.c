@@ -1,9 +1,7 @@
 #include "../include/libprg/arvore.h"
 
 #include <stdio.h>
-
-int contador_rotacao_esquerda = 0;
-int contador_rotacao_direita = 0;
+int contador = 0;
 
 no *criar_no(int x) {
     no *novo = (no*) malloc(sizeof(no));
@@ -42,7 +40,7 @@ no *rotacao_esquerda (no *raiz) {
     raiz->direito = folha;
     raiz->altura = maior(altura_no(raiz->esquerdo), altura_no(raiz->direito)) + 1;
     filho->altura = maior(altura_no(filho->esquerdo), altura_no(filho->direito)) + 1;
-    contador_rotacao_esquerda++;
+    contador++;
     return filho;
 }
 
@@ -54,7 +52,7 @@ no* rotacao_direita (no* raiz) {
     raiz->esquerdo = folha;
     raiz->altura = maior(altura_no(raiz->esquerdo), altura_no(raiz->direito)) + 1;
     filho->altura = maior(altura_no(filho->esquerdo), altura_no(filho->direito)) + 1;
-    contador_rotacao_direita++;
+    contador++;
     return filho;
 }
 
@@ -134,4 +132,8 @@ no *remover(no *raiz, int chave) {
     raiz->altura = maior(altura_no(raiz->esquerdo), altura_no(raiz->direito)) + 1;
     raiz = balancear(raiz);
     return raiz;
+}
+
+int contador_rotacoes() {
+    return contador;
 }
