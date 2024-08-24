@@ -24,6 +24,7 @@ no_t *inserir_valor_arvore (no_t *raiz, int x);
 no_t *balancear(no_t *raiz);
 no_t *remover(no_t *raiz, int chave);
 int contar_no (no_t *raiz);
+int guardar_no (no_t *raiz);
 
 #endif
 #endif //ARVORE_H

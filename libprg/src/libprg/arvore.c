@@ -140,6 +140,16 @@ int contar_no (no_t *raiz) {
         return 1 + contar_no(raiz->esquerdo) + contar_no(raiz->direito);
 }
 
+int guardar_no (no_t *raiz) {
+    if (raiz) {
+        if (raiz->esquerdo && raiz->direito == NULL)
+            return raiz->z;
+        else
+            return guardar_no(raiz->esquerdo);
+    }
+    return 0;
+}
+
 int contador_rotacoes() {
     return contador;
 }
