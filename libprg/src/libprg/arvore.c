@@ -2,7 +2,6 @@
 #include "stdlib.h"
 #include <stdio.h>
 int contador = 0;
-int *avr_vet;
 
 no_t *criar_no(int x) {
     no_t *novo = (no_t*) malloc(sizeof(no_t));
