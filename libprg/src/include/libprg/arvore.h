@@ -11,19 +11,16 @@ typedef struct no {
     int altura;
 }no_t;
 
-typedef struct no_pilha {
+typedef struct pilha {
     int num;
-    struct no_pilha *proximo;
-}pilha_no;
-
-typedef struct {
-    pilha_no *topo;
-    int tam;
-}Pilha;
+    struct pilha *proximo;
+    int tam = 0;
+}pilha_t;
 
 no_t *criar_no(int x);
-pilha_no *no_pilha();
-pilha_no *desempilhar(Pilha *p);
+pilha_t *criar();
+pilha_t *inserir(pilha_t *p, int valor);
+pilha_t *in_order (no_t *raiz, pilha_t *p);
 no_t *rotacao_esquerda (no_t *raiz);
 no_t* rotacao_direita (no_t* raiz);
 no_t* rotacao_direita_esquerda (no_t *raiz);
@@ -36,10 +33,8 @@ int maior(int a, int b);
 int altura_no (no_t *node);
 int fator_balanceamento (no_t *node);
 int contar_no (no_t *raiz);
-int *guardar_arvore();
 void liberar_arvore (no_t *raiz);
-void in_order (no_t *raiz, Pilha *p);
-void empilhar (Pilha *p, int valor);
+
 
 
 #endif

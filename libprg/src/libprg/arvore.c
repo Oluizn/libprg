@@ -152,39 +152,39 @@ void liberar_arvore (no_t *raiz) {
     }
 }
 
-void in_order (no_t *raiz, Pilha *p) {
+pilha_t *in_order (no_t *raiz, pilha_t *p) {
     if (raiz) {
         in_order(raiz->esquerdo, p);
-        empilhar(p, raiz->valor);
+        p = inserir(p, raiz->valor);
         in_order(raiz->direito, p);
     }
-}
-pilha_no *no_pilha() {
-    pilha_no *no = (pilha_no*) malloc(sizeof(pilha_no));
-    if (no) {
-        return no;
-    }
-    return NULL;
+    return p;
 }
 
-void empilhar (Pilha *p, int valor) {
-    pilha_no *novo_no = no_pilha();
-    if (novo_no) {
-        novo_no->num = valor;
-        novo_no->proximo = p->topo;
-        p->topo = novo_no;
+pilha_t *criar(){
+    pilha_t *novo = (pilha_t *) malloc(sizeof (pilha_t));
+    if (novo == NULL) {
+        exit(0);
+    }
+    return novo;
+}
+
+pilha_t *inserir(pilha_t *p, int valor) {
+    pilha_t *novo_elemento = criar();
+    pilha_t *aux = p;
+    novo_elemento->num = valor;
+    if (p == NULL) {
+        p = novo_elemento;
+        novo_elemento->proximo = NULL;
+        p->tam++;
+    }else {
+        while (aux->proximo)
+            aux = aux->proximo;
+        aux->proximo = novo_elemento;
+        novo_elemento->proximo = NULL;
         p->tam++;
     }
-}
-
-pilha_no *desempilhar(Pilha *p) {
-    pilha_no *no =NULL;
-    if (p->topo) {
-        no = p->topo;
-        p->topo = no->proximo;
-        p->tam--;
-    }
-    return no;
+    return p;
 }
 
 // int *guardar_arvore() {
