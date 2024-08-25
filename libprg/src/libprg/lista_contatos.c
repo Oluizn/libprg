@@ -19,7 +19,7 @@ void salvar_contato(contact ctt, FILE *file){
 
 int inserir_contato(contact ctt){
     int r = 0; // Atributo booleano, 0 para falso e qualquer outro valor para verdadeiro
-    FILE *file = fopen(FILE_NAME, "a+");        // Abre um arquivo, método "a+" para criar o arquivo caso ele ainda não exista
+    FILE *file = fopen(FILE_NAME, "a+");        // Abre um arquivo, metodo "a+" para escrever no arquivo ja existente
 
     // Teste para ver se arquivo existe
     if(file != NULL) {

@@ -153,13 +153,39 @@ void liberar_arvore (no_t *raiz) {
     }
 }
 
-void ir_order (no_t *raiz) {
+void ir_order (no_t *raiz, Pilha *p) {
     if (raiz) {
-        ir_order(raiz->esquerdo);
-        *avr_vet = raiz->valor;
-        avr_vet++;
-        ir_order(raiz->direito);
+        ir_order(raiz->esquerdo, p);
+        empilhar(p, raiz->valor);
+        ir_order(raiz->direito, p);
     }
+}
+pilha_no *no_pilha() {
+    pilha_no *no = (pilha_no*) malloc(sizeof(pilha_no));
+    if (no) {
+        return no;
+    }
+    return NULL;
+}
+
+void empilhar (Pilha *p, int valor) {
+    pilha_no *novo_no = no_pilha();
+    if (novo_no) {
+        novo_no->num = valor;
+        novo_no->proximo = p->topo;
+        p->topo = novo_no;
+        p->tam++;
+    }
+}
+
+pilha_no *desempilhar(Pilha *p) {
+    pilha_no *no =NULL;
+    if (p->topo) {
+        no = p->topo;
+        p->topo = no->proximo;
+        p->tam--;
+    }
+    return no;
 }
 
 int *guardar_arvore() {
