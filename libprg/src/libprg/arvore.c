@@ -153,13 +153,12 @@ void liberar_arvore (no_t *raiz) {
 }
 
 int *guardar_arvore (no_t *raiz, int *vet_avr) {
-    int i= 0;
     if (raiz) {
-        guardar_arvore(raiz->esquerdo);
+        guardar_arvore(raiz->esquerdo, vet_avr);
         vet_avr = (int*) malloc(sizeof(int));
         *vet_avr = raiz->valor;
         vet_avr++;
-        guardar_arvore(raiz->direito);
+        guardar_arvore(raiz->direito, vet_avr);
     }
     return vet_avr;
 }
