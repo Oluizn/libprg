@@ -6,7 +6,7 @@
 #include <stdlib.h>
 
 typedef struct no {
-    int z;
+    int valor;
     struct no *esquerdo, *direito;
     int altura;
 }no_t;
@@ -24,8 +24,8 @@ no_t *inserir_valor_arvore (no_t *raiz, int x);
 no_t *balancear(no_t *raiz);
 no_t *remover(no_t *raiz, int chave);
 int contar_no (no_t *raiz);
-int guardar_no (no_t *raiz);
 void liberar_arvore (no_t *raiz);
+void guardar_arvore (no_t *raiz);
 
 #endif
 #endif //ARVORE_H
