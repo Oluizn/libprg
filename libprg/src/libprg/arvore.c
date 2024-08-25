@@ -187,6 +187,6 @@ pilha_no *desempilhar(Pilha *p) {
     return no;
 }
 
-int *guardar_arvore() {
-    return avr_vet;
-}
+// int *guardar_arvore() {
+//     return avr_vet;
+// }

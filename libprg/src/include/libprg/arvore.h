@@ -23,6 +23,7 @@ typedef struct {
 
 no_t *criar_no(int x);
 pilha_no *no_pilha();
+pilha_no *desempilhar(Pilha *p);
 no_t *rotacao_esquerda (no_t *raiz);
 no_t* rotacao_direita (no_t* raiz);
 no_t* rotacao_direita_esquerda (no_t *raiz);
