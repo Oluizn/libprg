@@ -11,12 +11,6 @@ typedef struct no {
     int altura;
 }no_t;
 
-typedef struct pilha {
-    int num;
-    struct pilha *proximo;
-    int tam = 0;
-}pilha_t;
-
 no_t *criar_no(int x);
 no_t *rotacao_esquerda (no_t *raiz);
 no_t *rotacao_direita (no_t* raiz);
