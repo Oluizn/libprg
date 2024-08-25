@@ -37,7 +37,7 @@ int fator_balanceamento (no_t *node);
 int contar_no (no_t *raiz);
 int *guardar_arvore();
 void liberar_arvore (no_t *raiz);
-void ir_order (no_t *raiz, Pilha *p);
+void in_order (no_t *raiz, Pilha *p);
 void empilhar (Pilha *p, int valor);
 
 

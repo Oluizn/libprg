@@ -152,11 +152,11 @@ void liberar_arvore (no_t *raiz) {
     }
 }
 
-void ir_order (no_t *raiz, Pilha *p) {
+void in_order (no_t *raiz, Pilha *p) {
     if (raiz) {
-        ir_order(raiz->esquerdo, p);
+        in_order(raiz->esquerdo, p);
         empilhar(p, raiz->valor);
-        ir_order(raiz->direito, p);
+        in_order(raiz->direito, p);
     }
 }
 pilha_no *no_pilha() {
