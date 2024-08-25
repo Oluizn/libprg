@@ -2,6 +2,7 @@
 #include "stdlib.h"
 #include <stdio.h>
 int contador = 0;
+int *avr_vet;
 
 no_t *criar_no(int x) {
     no_t *novo = (no_t*) malloc(sizeof(no_t));
@@ -152,13 +153,15 @@ void liberar_arvore (no_t *raiz) {
     }
 }
 
-int *guardar_arvore (no_t *raiz, int *vet_avr) {
+void ir_order (no_t *raiz) {
     if (raiz) {
-        guardar_arvore(raiz->esquerdo, vet_avr);
-        vet_avr = (int*) malloc(sizeof(int));
-        *vet_avr = raiz->valor;
-        vet_avr++;
-        guardar_arvore(raiz->direito, vet_avr);
+        ir_order(raiz->esquerdo);
+        *avr_vet = raiz->valor;
+        avr_vet++;
+        ir_order(raiz->direito);
     }
-    return vet_avr;
+}
+
+int *guardar_arvore() {
+    return avr_vet;
 }

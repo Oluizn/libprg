@@ -25,7 +25,7 @@ no_t *balancear(no_t *raiz);
 no_t *remover(no_t *raiz, int chave);
 int contar_no (no_t *raiz);
 void liberar_arvore (no_t *raiz);
-int *guardar_arvore (no_t *raiz, int *vet_avr);
+void ir_order (no_t *raiz);
 
 #endif
 #endif //ARVORE_H
