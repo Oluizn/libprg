@@ -133,13 +133,6 @@ no_t *remover(no_t *raiz, int chave) {
     return raiz;
 }
 
-int contar_no (no_t *raiz) {
-    if (raiz == NULL)
-        return 0;
-    else
-        return 1 + contar_no(raiz->esquerdo) + contar_no(raiz->direito);
-}
-
 int contador_rotacoes() {
     return contador;
 }
@@ -151,42 +144,3 @@ void liberar_arvore (no_t *raiz) {
         free(raiz);
     }
 }
-
-pilha_t *in_order (no_t *raiz, pilha_t *p) {
-    if (raiz) {
-        in_order(raiz->esquerdo, p);
-        p = inserir(p, raiz->valor);
-        in_order(raiz->direito, p);
-    }
-    return p;
-}
-
-pilha_t *criar(){
-    pilha_t *novo = (pilha_t *) malloc(sizeof (pilha_t));
-    if (novo == NULL) {
-        exit(0);
-    }
-    return novo;
-}
-
-pilha_t *inserir(pilha_t *p, int valor) {
-    pilha_t *novo_elemento = criar();
-    pilha_t *aux = p;
-    novo_elemento->num = valor;
-    if (p == NULL) {
-        p = novo_elemento;
-        novo_elemento->proximo = NULL;
-        p->tam++;
-    }else {
-        while (aux->proximo)
-            aux = aux->proximo;
-        aux->proximo = novo_elemento;
-        novo_elemento->proximo = NULL;
-        p->tam++;
-    }
-    return p;
-}
-
-// int *guardar_arvore() {
-//     return avr_vet;
-// }
